@@ -21,7 +21,7 @@ class StarageDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Domain analytics",
+            "Snapshot",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,

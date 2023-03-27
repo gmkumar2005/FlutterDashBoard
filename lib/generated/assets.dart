@@ -28,6 +28,8 @@ class Assets {
   static const String iconsPill5 = 'assets/icons/pill5.svg';
   static const String iconsSearch = 'assets/icons/Search.svg';
   static const String iconsSoundFile = 'assets/icons/sound_file.svg';
+  static const String iconsStone = 'assets/icons/stone.svg';
+  static const String iconsStone1 = 'assets/icons/stone1.svg';
   static const String iconsTreatment = 'assets/icons/treatment.svg';
   static const String iconsUnknown = 'assets/icons/unknown.svg';
   static const String iconsXdFile = 'assets/icons/xd_file.svg';

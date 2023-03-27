@@ -20,38 +20,43 @@ class SideMenu extends StatelessWidget {
             press: () {},
           ),
           DrawerListTile(
-            title: "Transaction",
-            svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Task",
-            svgSrc: "assets/icons/menu_task.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Documents",
-            svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Store",
-            svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Notification",
-            svgSrc: "assets/icons/menu_notification.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Profile",
+            title: "Passengers",
             svgSrc: "assets/icons/menu_profile.svg",
             press: () {},
           ),
           DrawerListTile(
-            title: "Settings",
-            svgSrc: "assets/icons/menu_setting.svg",
+            title: "Bookings",
+            svgSrc: "assets/icons/menu_doc.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Patients",
+            svgSrc: "assets/icons/menu_profile.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Treatments",
+            svgSrc: "assets/icons/menu_store.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Accounts",
+            svgSrc: "assets/icons/menu_tran.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Payments",
+            svgSrc: "assets/icons/menu_doc.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Customers",
+            svgSrc: "assets/icons/menu_profile.svg",
+            press: () {},
+          ),
+          DrawerListTile(
+            title: "Purchases",
+            svgSrc: "assets/icons/menu_doc.svg",
             press: () {},
           ),
         ],

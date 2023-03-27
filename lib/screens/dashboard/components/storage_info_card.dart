@@ -45,7 +45,7 @@ class StorageInfoCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    "$numOfFiles Files",
+                    "$numOfFiles TXN",
                     style: Theme.of(context)
                         .textTheme
                         .caption!
@@ -55,7 +55,7 @@ class StorageInfoCard extends StatelessWidget {
               ),
             ),
           ),
-          Text(amountOfFiles)
+          Text("$amountOfFiles K")
         ],
       ),
     );

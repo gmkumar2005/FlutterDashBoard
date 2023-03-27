@@ -1,3 +1,4 @@
+import 'package:admin/models/Payment.dart';
 import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -5,11 +6,12 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
 
-class RecentFiles extends StatelessWidget {
-  const RecentFiles({
+class RecentPayments extends StatelessWidget {
+  const RecentPayments({
     Key? key,
   }) : super(key: key);
 
+  // txnid, accountid, amountpaid, amountrecieved, dataofpayment
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +24,7 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Transactions",
+            "Recent Payments",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -32,18 +34,29 @@ class RecentFiles extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Transaction type"),
+                  label: Text("TXNID"),
                 ),
+                DataColumn(
+                  label: Text("Account"),
+                ),
+
+                DataColumn(
+                  label: Text("Amount Received"),
+                ),
+
+                DataColumn(
+                  label: Text("Amount Paid"),
+                ),
+
                 DataColumn(
                   label: Text("Date"),
                 ),
-                DataColumn(
-                  label: Text("Amount"),
-                ),
+
+
               ],
               rows: List.generate(
-                demoRecentFiles.length,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
+                demoPayments.length,
+                (index) => recentPaymentDataRow(demoPayments[index]),
               ),
             ),
           ),
@@ -53,26 +66,14 @@ class RecentFiles extends StatelessWidget {
   }
 }
 
-DataRow recentFileDataRow(RecentFile fileInfo) {
+DataRow recentPaymentDataRow(Payment paymentInfo) {
   return DataRow(
     cells: [
-      DataCell(
-        Row(
-          children: [
-            SvgPicture.asset(
-              fileInfo.icon!,
-              height: 30,
-              width: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
-            ),
-          ],
-        ),
-      ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(paymentInfo.txnid!)),
+      DataCell(Text(paymentInfo.accountid!)),
+      DataCell(Text(paymentInfo.amountrecieved!)),
+      DataCell(Text("(${paymentInfo.amountpaid!})")),
+      DataCell(Text(paymentInfo.dataofpayment!)),
     ],
   );
 }

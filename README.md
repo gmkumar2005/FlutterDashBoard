@@ -34,3 +34,4 @@ flutter run -d chrome
 - Implement Repository for fetching dynamic data from REST services
 - Refactor layered architecture
 
+<img width="1680" alt="image" src="https://user-images.githubusercontent.com/1712742/228355446-42cf71ae-1be0-49dc-86d1-5403308ea741.png">

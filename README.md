@@ -24,4 +24,13 @@ flutter run -d chrome
   - Customers
   - Purchases
 
+### Dependencies
+- Block
+- Intl
+- fl_chart
+- flutter_svg
+
+### Todo
+- Implement Repository for fetching dynamic data from REST services
+- Refactor layered architecture
 

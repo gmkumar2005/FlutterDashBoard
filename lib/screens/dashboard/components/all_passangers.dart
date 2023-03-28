@@ -1,11 +1,11 @@
-import 'package:admin/models/Account.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/Passenger.dart';
 
-class Accounts extends StatelessWidget {
-  const Accounts({
+class Passengers extends StatelessWidget {
+  const Passengers({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +21,7 @@ class Accounts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Accounts",
+            "Passengers",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,7 +31,7 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Passenger ID"),
                 ),
                 DataColumn(
                   label: Text("Name"),
@@ -46,12 +46,12 @@ class Accounts extends StatelessWidget {
                   label: Text("DOJ"),
                 ),
                 DataColumn(
-                  label: Text("Opening Balance"),
+                  label: Text("Balance"),
                 ),
               ],
               rows: List.generate(
-                demoAccounts.length,
-                (index) => accountsDataRow(demoAccounts[index]),
+                demoPassengers.length,
+                (index) => passengersDataRow(demoPassengers[index]),
               ),
             ),
           ),
@@ -61,15 +61,15 @@ class Accounts extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Account accountInfo) {
+DataRow passengersDataRow(Passenger passengerInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(accountInfo.accountid!)),
-      DataCell(Text(accountInfo.name!)),
-      DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!)),
-      DataCell(Text(accountInfo.dateofjoining!)),
-      DataCell(Text(accountInfo.openiningbalance!)),
+      DataCell(Text(passengerInfo.accountid!)),
+      DataCell(Text(passengerInfo.name!)),
+      DataCell(Text(passengerInfo.gender!)),
+      DataCell(Text(passengerInfo.age!)),
+      DataCell(Text(passengerInfo.dateofjoining!)),
+      DataCell(Text(passengerInfo.openiningbalance!)),
     ],
   );
 }

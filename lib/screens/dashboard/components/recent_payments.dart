@@ -34,7 +34,7 @@ class RecentPayments extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("TXNID"),
+                  label: Text("Payment ID"),
                 ),
                 DataColumn(
                   label: Text("Account"),

@@ -1,12 +1,11 @@
-import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
+import '../../../models/Customer.dart';
 
-class RecentFiles extends StatelessWidget {
-  const RecentFiles({
+class Customers extends StatelessWidget {
+  const Customers({
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +21,7 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Transactions",
+            "Customers",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -32,18 +31,27 @@ class RecentFiles extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Transaction type"),
+                  label: Text("Customer ID"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("Name"),
                 ),
                 DataColumn(
-                  label: Text("Amount"),
+                  label: Text("Gender"),
+                ),
+                DataColumn(
+                  label: Text("Age"),
+                ),
+                DataColumn(
+                  label: Text("DOJ"),
+                ),
+                DataColumn(
+                  label: Text("Balance"),
                 ),
               ],
               rows: List.generate(
-                demoRecentFiles.length,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
+                demoCustomers.length,
+                (index) => accountsDataRow(demoCustomers[index]),
               ),
             ),
           ),
@@ -53,26 +61,15 @@ class RecentFiles extends StatelessWidget {
   }
 }
 
-DataRow recentFileDataRow(RecentFile fileInfo) {
+DataRow accountsDataRow(Customer customerInfo) {
   return DataRow(
     cells: [
-      DataCell(
-        Row(
-          children: [
-            SvgPicture.asset(
-              fileInfo.icon!,
-              height: 30,
-              width: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
-            ),
-          ],
-        ),
-      ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(customerInfo.accountid!)),
+      DataCell(Text(customerInfo.name!)),
+      DataCell(Text(customerInfo.gender!)),
+      DataCell(Text(customerInfo.age!)),
+      DataCell(Text(customerInfo.dateofjoining!)),
+      DataCell(Text(customerInfo.openiningbalance!)),
     ],
   );
 }

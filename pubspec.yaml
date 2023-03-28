@@ -33,7 +33,9 @@ dependencies:
   fl_chart: ^0.36.1
   provider: ^5.0.0
   data_table_2: ^2.0.3
-
+  bloc: ^7.1.0
+  flutter_bloc: ^7.1.0
+  equatable: ^2.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

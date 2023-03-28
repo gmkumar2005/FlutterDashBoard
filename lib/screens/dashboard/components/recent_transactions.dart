@@ -1,11 +1,12 @@
-import 'package:admin/models/Account.dart';
+import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
 
-class Accounts extends StatelessWidget {
-  const Accounts({
+class RecentTransactions extends StatelessWidget {
+  const RecentTransactions({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +22,7 @@ class Accounts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Accounts",
+            "Recent Transactions",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,27 +32,18 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Transaction type"),
                 ),
                 DataColumn(
-                  label: Text("Name"),
+                  label: Text("Date"),
                 ),
                 DataColumn(
-                  label: Text("Gender"),
-                ),
-                DataColumn(
-                  label: Text("Age"),
-                ),
-                DataColumn(
-                  label: Text("DOJ"),
-                ),
-                DataColumn(
-                  label: Text("Opening Balance"),
+                  label: Text("Amount"),
                 ),
               ],
               rows: List.generate(
-                demoAccounts.length,
-                (index) => accountsDataRow(demoAccounts[index]),
+                demoRecentTxns.length,
+                (index) => recentFileDataRow(demoRecentTxns[index]),
               ),
             ),
           ),
@@ -61,15 +53,26 @@ class Accounts extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Account accountInfo) {
+DataRow recentFileDataRow(RecentTransaction fileInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(accountInfo.accountid!)),
-      DataCell(Text(accountInfo.name!)),
-      DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!)),
-      DataCell(Text(accountInfo.dateofjoining!)),
-      DataCell(Text(accountInfo.openiningbalance!)),
+      DataCell(
+        Row(
+          children: [
+            SvgPicture.asset(
+              fileInfo.icon!,
+              height: 30,
+              width: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+              child: Text(fileInfo.title!),
+            ),
+          ],
+        ),
+      ),
+      DataCell(Text(fileInfo.date!)),
+      DataCell(Text(fileInfo.size!)),
     ],
   );
 }

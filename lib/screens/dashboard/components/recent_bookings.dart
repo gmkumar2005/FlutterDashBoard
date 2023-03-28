@@ -1,11 +1,12 @@
-import 'package:admin/models/Account.dart';
+import 'package:admin/models/Payment.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/Booking.dart';
 
-class Accounts extends StatelessWidget {
-  const Accounts({
+class RecentBookings extends StatelessWidget {
+  const RecentBookings({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +22,7 @@ class Accounts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Accounts",
+            "Recent Bookings",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,27 +32,29 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Booking ID"),
                 ),
                 DataColumn(
-                  label: Text("Name"),
+                  label: Text("Account"),
                 ),
+
                 DataColumn(
-                  label: Text("Gender"),
+                  label: Text("Amount Received"),
                 ),
+
                 DataColumn(
-                  label: Text("Age"),
+                  label: Text("Amount Paid"),
                 ),
+
                 DataColumn(
-                  label: Text("DOJ"),
+                  label: Text("Date"),
                 ),
-                DataColumn(
-                  label: Text("Opening Balance"),
-                ),
+
+
               ],
               rows: List.generate(
-                demoAccounts.length,
-                (index) => accountsDataRow(demoAccounts[index]),
+                demoPayments.length,
+                (index) => recentBookingDataRow(demoBookings[index]),
               ),
             ),
           ),
@@ -61,15 +64,14 @@ class Accounts extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Account accountInfo) {
+DataRow recentBookingDataRow(Booking bookingInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(accountInfo.accountid!)),
-      DataCell(Text(accountInfo.name!)),
-      DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!)),
-      DataCell(Text(accountInfo.dateofjoining!)),
-      DataCell(Text(accountInfo.openiningbalance!)),
+      DataCell(Text(bookingInfo.txnid!)),
+      DataCell(Text(bookingInfo.accountid!)),
+      DataCell(Text(bookingInfo.amountrecieved!)),
+      DataCell(Text("(${bookingInfo.amountpaid!})")),
+      DataCell(Text(bookingInfo.dataofpayment!)),
     ],
   );
 }

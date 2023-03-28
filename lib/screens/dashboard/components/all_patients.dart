@@ -1,11 +1,11 @@
-import 'package:admin/models/Account.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/Patient.dart';
 
-class Accounts extends StatelessWidget {
-  const Accounts({
+class Patients extends StatelessWidget {
+  const Patients({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +21,7 @@ class Accounts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Accounts",
+            "Patients",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,7 +31,7 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Patient ID"),
                 ),
                 DataColumn(
                   label: Text("Name"),
@@ -46,12 +46,12 @@ class Accounts extends StatelessWidget {
                   label: Text("DOJ"),
                 ),
                 DataColumn(
-                  label: Text("Opening Balance"),
+                  label: Text("Balance"),
                 ),
               ],
               rows: List.generate(
-                demoAccounts.length,
-                (index) => accountsDataRow(demoAccounts[index]),
+                demoPatients.length,
+                (index) => patientsDataRow(demoPatients[index]),
               ),
             ),
           ),
@@ -61,15 +61,15 @@ class Accounts extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Account accountInfo) {
+DataRow patientsDataRow(Patient patientInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(accountInfo.accountid!)),
-      DataCell(Text(accountInfo.name!)),
-      DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!)),
-      DataCell(Text(accountInfo.dateofjoining!)),
-      DataCell(Text(accountInfo.openiningbalance!)),
+      DataCell(Text(patientInfo.accountid!)),
+      DataCell(Text(patientInfo.name!)),
+      DataCell(Text(patientInfo.gender!)),
+      DataCell(Text(patientInfo.age!)),
+      DataCell(Text(patientInfo.dateofjoining!)),
+      DataCell(Text(patientInfo.openiningbalance!)),
     ],
   );
 }

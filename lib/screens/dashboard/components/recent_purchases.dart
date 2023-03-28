@@ -1,11 +1,14 @@
-import 'package:admin/models/Account.dart';
+import 'package:admin/models/Payment.dart';
+import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
+import '../../../models/Purchase.dart';
 
-class Accounts extends StatelessWidget {
-  const Accounts({
+class RecentPurchases extends StatelessWidget {
+  const RecentPurchases({
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +24,7 @@ class Accounts extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Accounts",
+            "Recent Purchases",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -31,27 +34,28 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Purchase ID"),
                 ),
                 DataColumn(
-                  label: Text("Name"),
+                  label: Text("Account"),
                 ),
+
                 DataColumn(
-                  label: Text("Gender"),
+                  label: Text("Amount Received"),
                 ),
+
                 DataColumn(
-                  label: Text("Age"),
+                  label: Text("Amount Paid"),
                 ),
+
                 DataColumn(
-                  label: Text("DOJ"),
+                  label: Text("Date"),
                 ),
-                DataColumn(
-                  label: Text("Opening Balance"),
-                ),
+
               ],
               rows: List.generate(
-                demoAccounts.length,
-                (index) => accountsDataRow(demoAccounts[index]),
+                demoPurchases.length,
+                (index) => recentPaymentDataRow(demoPurchases[index]),
               ),
             ),
           ),
@@ -61,15 +65,14 @@ class Accounts extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Account accountInfo) {
+DataRow recentPaymentDataRow(Purchase purchaseInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(accountInfo.accountid!)),
-      DataCell(Text(accountInfo.name!)),
-      DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!)),
-      DataCell(Text(accountInfo.dateofjoining!)),
-      DataCell(Text(accountInfo.openiningbalance!)),
+      DataCell(Text(purchaseInfo.txnid!)),
+      DataCell(Text(purchaseInfo.accountid!)),
+      DataCell(Text(purchaseInfo.amountrecieved!)),
+      DataCell(Text("(${purchaseInfo.amountpaid!})")),
+      DataCell(Text(purchaseInfo.dataofpayment!)),
     ],
   );
 }

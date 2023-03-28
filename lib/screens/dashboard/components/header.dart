@@ -1,10 +1,11 @@
 import 'package:admin/controllers/MenuAppController.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../navigation_cubit.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -21,16 +22,87 @@ class Header extends StatelessWidget {
             onPressed: context.read<MenuAppController>().controlMenu,
           ),
         if (!Responsive.isMobile(context))
-          Text(
-            "Dashboard",
-            style: Theme.of(context).textTheme.headline6,
-          ),
+          _showHeader(),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
         ProfileCard()
       ],
     );
+  }
+
+  _showHeader() {
+    return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
+      switch (state) {
+        case NavbarItem.dashboard:
+          return Text(
+            "Dashboard",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+        case NavbarItem.passengers:
+          return Text(
+            "Travel",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+        case NavbarItem.bookings:
+          return Text(
+            "Travel",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.patients:
+          return Text(
+            "Health care",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.treatments:
+          return Text(
+            "Health care",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.accounts:
+          return Text(
+            "Banking",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.payments:
+          return Text(
+            "Banking",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.customers:
+          return Text(
+            "Shopping",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        case NavbarItem.purchases:
+          return Text(
+            "Shopping",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+
+        default:
+          return Text(
+            "Dashboard",
+            style: Theme.of(context).textTheme.titleMedium,
+          );
+          break;
+      }
+    });
   }
 }
 

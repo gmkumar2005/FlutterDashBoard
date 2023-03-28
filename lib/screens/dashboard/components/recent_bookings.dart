@@ -18,6 +18,9 @@ class RecentBookings extends StatelessWidget {
         color: secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
+
+      // Slno. PassengerId. OriginCity. DestinationCity. Distance. ModeOfTransport. PricePerKM
+      // PassengerId. Name. Age. Gender. DateOfJourney
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,22 +38,23 @@ class RecentBookings extends StatelessWidget {
                   label: Text("Booking ID"),
                 ),
                 DataColumn(
-                  label: Text("Account"),
+                  label: Text("Passenger ID"),
                 ),
-
                 DataColumn(
-                  label: Text("Amount Received"),
+                  label: Text("Origin"),
                 ),
-
                 DataColumn(
-                  label: Text("Amount Paid"),
+                  label: Text("Destination"),
                 ),
-
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("Distance"),
                 ),
-
-
+                DataColumn(
+                  label: Text("Price"),
+                ),
+                DataColumn(
+                  label: Text("Date of Journey"),
+                ),
               ],
               rows: List.generate(
                 demoPayments.length,
@@ -64,14 +68,18 @@ class RecentBookings extends StatelessWidget {
   }
 }
 
+//   final String? bookingid, passengerid, origincity, destinationcity, distance, price, dateofjourney;
+
 DataRow recentBookingDataRow(Booking bookingInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(bookingInfo.txnid!)),
-      DataCell(Text(bookingInfo.accountid!)),
-      DataCell(Text(bookingInfo.amountrecieved!)),
-      DataCell(Text("(${bookingInfo.amountpaid!})")),
-      DataCell(Text(bookingInfo.dataofpayment!)),
+      DataCell(Text(bookingInfo.bookingid!)),
+      DataCell(Text(bookingInfo.passengerid!)),
+      DataCell(Text(bookingInfo.origincity!)),
+      DataCell(Text("(${bookingInfo.destinationcity!})")),
+      DataCell(Text(bookingInfo.distance!)),
+      DataCell(Text(bookingInfo.price!)),
+      DataCell(Text(bookingInfo.dateofjourney!)),
     ],
   );
 }

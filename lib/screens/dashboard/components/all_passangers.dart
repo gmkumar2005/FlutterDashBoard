@@ -9,6 +9,9 @@ class Passengers extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  // Slno. PassengerId. OriginCity. DestinationCity. Distance. ModeOfTransport. PricePerKM
+  // PassengerId. Name. Age. Gender. DateOfJourney
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,17 +40,14 @@ class Passengers extends StatelessWidget {
                   label: Text("Name"),
                 ),
                 DataColumn(
-                  label: Text("Gender"),
-                ),
-                DataColumn(
                   label: Text("Age"),
                 ),
                 DataColumn(
-                  label: Text("DOJ"),
+                  label: Text("Gender"),
                 ),
                 DataColumn(
-                  label: Text("Balance"),
-                ),
+                  label: Text("Date of birth"),
+                )
               ],
               rows: List.generate(
                 demoPassengers.length,
@@ -64,12 +64,11 @@ class Passengers extends StatelessWidget {
 DataRow passengersDataRow(Passenger passengerInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(passengerInfo.accountid!)),
+      DataCell(Text(passengerInfo.passengerid!)),
       DataCell(Text(passengerInfo.name!)),
-      DataCell(Text(passengerInfo.gender!)),
       DataCell(Text(passengerInfo.age!)),
-      DataCell(Text(passengerInfo.dateofjoining!)),
-      DataCell(Text(passengerInfo.openiningbalance!)),
+      DataCell(Text(passengerInfo.gender!)),
+      DataCell(Text(passengerInfo.dateofbirth!))
     ],
   );
 }

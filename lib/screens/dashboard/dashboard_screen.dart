@@ -14,8 +14,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
-import 'components/recent_transactions.dart';
 import 'components/recent_payments.dart';
+import 'components/recent_transactions.dart';
 import 'components/storage_details.dart';
 import 'navigation_cubit.dart';
 
@@ -42,29 +42,65 @@ class _DashboardWidgetState extends State<DashboardScreen> {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyFiles(),
+                      MyPortfolio(),
                       SizedBox(height: defaultPadding),
                       _getGridScreen(),
                       if (Responsive.isMobile(context))
                         SizedBox(height: defaultPadding),
-                      if (Responsive.isMobile(context)) StarageDetails(),
+                      if (Responsive.isMobile(context)) SnapshotDetails(),
                     ],
                   ),
                 ),
                 if (!Responsive.isMobile(context))
                   SizedBox(width: defaultPadding),
-                // On Mobile means if the screen is less than 850 we dont want to show it
-                if (!Responsive.isMobile(context))
-                  Expanded(
-                    flex: 2,
-                    child: StarageDetails(),
-                  ),
+                _showSnapShot(),
               ],
             )
           ],
         ),
       ),
     );
+  }
+
+  _showSnapShotDetails() {
+    return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
+      log("Received Navbar state ${state} ");
+      switch (state) {
+        case NavbarItem.dashboard:
+          if (!Responsive.isMobile(context))
+            return Expanded(
+              flex: 2,
+              child: SnapshotDetails(),
+            );
+          else
+            return Container();
+          break;
+        default:
+          return Container();
+          break;
+      }
+    });
+  }
+
+  _showSnapShot() {
+    return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
+      log("Received Navbar state ${state} ");
+      switch (state) {
+        case NavbarItem.dashboard:
+        // On Mobile means if the screen is less than 850 we dont want to show it
+          if (!Responsive.isMobile(context))
+            return Expanded(
+              flex: 2,
+              child: SnapshotDetails(),
+            );
+          else
+            return Container();
+          break;
+        default:
+          return Container();
+          break;
+      }
+    });
   }
 
   // dashboard, passengers, bookings, patients, treatments, accounts, payments, customers, purchases

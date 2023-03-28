@@ -1,35 +1,45 @@
+// Slno. PassengerId. OriginCity. DestinationCity. Distance. ModeOfTransport. PricePerKM
+// PassengerId. Name. Age. Gender. DateOfJourney
+
 class Passenger {
-  final String? accountid, name, age, gender, dateofjoining, openiningbalance;
+  final String? passengerid, name, age, gender, dateofbirth;
 
   Passenger(
-      {this.accountid,
+      {this.passengerid,
       this.name,
       this.age,
       this.gender,
-      this.dateofjoining,
-      this.openiningbalance});
+      this.dateofbirth});
 }
 
 List demoPassengers = [
+
   Passenger(
-      accountid: "One",
+      passengerid: "One",
       name: "Ekam",
-      age: "01-03-2021",
+      age: "01",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofbirth: "01-03-2021"),
+
   Passenger(
-      accountid: "Two",
+      passengerid: "Two",
       name: "Dve",
-      age: "01-03-2021",
+      age: "02",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofbirth: "02-03-2021"),
+
   Passenger(
-      accountid: "Three",
+      passengerid: "Three",
       name: "Treeni",
-      age: "01-03-2021",
+      age: "03",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofbirth: "03-03-2021"),
+
+  Passenger(
+      passengerid: "Four",
+      name: "Chatvaari",
+      age: "04",
+      gender: "Male",
+      dateofbirth: "04-03-2021")
+
 ];

@@ -1,8 +1,5 @@
-import 'package:admin/models/Payment.dart';
-import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
 import '../../../models/Purchase.dart';
@@ -32,26 +29,24 @@ class RecentPurchases extends StatelessWidget {
             child: DataTable2(
               columnSpacing: defaultPadding,
               minWidth: 600,
+              // CustomerId. Name. Age. Gender. DateOfPurchase
+              // Slno. CustomerId. ItemPurchased. Price. Quantity.
               columns: [
                 DataColumn(
                   label: Text("Purchase ID"),
                 ),
                 DataColumn(
-                  label: Text("Account"),
+                  label: Text("Customer ID"),
                 ),
-
                 DataColumn(
-                  label: Text("Amount Received"),
+                  label: Text("Item purchased"),
                 ),
-
                 DataColumn(
-                  label: Text("Amount Paid"),
+                  label: Text("Price"),
                 ),
-
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("Quantity"),
                 ),
-
               ],
               rows: List.generate(
                 demoPurchases.length,
@@ -68,11 +63,11 @@ class RecentPurchases extends StatelessWidget {
 DataRow recentPaymentDataRow(Purchase purchaseInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(purchaseInfo.txnid!)),
-      DataCell(Text(purchaseInfo.accountid!)),
-      DataCell(Text(purchaseInfo.amountrecieved!)),
-      DataCell(Text("(${purchaseInfo.amountpaid!})")),
-      DataCell(Text(purchaseInfo.dataofpayment!)),
+      DataCell(Text(purchaseInfo.purchaseid!)),
+      DataCell(Text(purchaseInfo.customerid!)),
+      DataCell(Text(purchaseInfo.itempurchased!)),
+      DataCell(Text(purchaseInfo.price!.toString())),
+      DataCell(Text(purchaseInfo.quantity!.toString())),
     ],
   );
 }

@@ -1,8 +1,6 @@
 import 'package:admin/models/Payment.dart';
-import 'package:admin/models/RecentFile.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
 
@@ -39,20 +37,18 @@ class RecentPayments extends StatelessWidget {
                 DataColumn(
                   label: Text("Account"),
                 ),
-
                 DataColumn(
                   label: Text("Amount Received"),
                 ),
-
                 DataColumn(
                   label: Text("Amount Paid"),
                 ),
-
                 DataColumn(
                   label: Text("Date"),
                 ),
-
-
+                DataColumn(
+                  label: Text("Purpose"),
+                ),
               ],
               rows: List.generate(
                 demoPayments.length,
@@ -71,9 +67,10 @@ DataRow recentPaymentDataRow(Payment paymentInfo) {
     cells: [
       DataCell(Text(paymentInfo.txnid!)),
       DataCell(Text(paymentInfo.accountid!)),
-      DataCell(Text(paymentInfo.amountrecieved!)),
-      DataCell(Text("(${paymentInfo.amountpaid!})")),
+      DataCell(Text(paymentInfo.amountrecieved!.toString())),
+      DataCell(Text("(${paymentInfo.amountpaid!.toString()})")),
       DataCell(Text(paymentInfo.dataofpayment!)),
+      DataCell(Text(paymentInfo.purpose!)),
     ],
   );
 }

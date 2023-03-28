@@ -59,14 +59,14 @@ class FileInfoCard extends StatelessWidget {
                 "${info.numOfFiles} TXN",
                 style: Theme.of(context)
                     .textTheme
-                    .caption!
+                    .bodySmall!
                     .copyWith(color: Colors.white70),
               ),
               Text(
-                "Rs: ${info.totalStorage!}K",
+                "${info.totalStorage!}",
                 style: Theme.of(context)
                     .textTheme
-                    .caption!
+                    .bodySmall!
                     .copyWith(color: Colors.white),
               ),
             ],

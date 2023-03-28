@@ -1,35 +1,42 @@
+
+// PatientID. Name. Age. Gender. DateOfAdmission
+// Slno. PatientID. Diagnosis. Treatment. DateOfTreatment. Cost
+
 class Patient {
-  final String? accountid, name, age, gender, dateofjoining, openiningbalance;
+  final String? patientid, name, age, gender, dateofadmission;
 
   Patient(
-      {this.accountid,
+      {this.patientid,
       this.name,
       this.age,
       this.gender,
-      this.dateofjoining,
-      this.openiningbalance});
+      this.dateofadmission});
 }
 
 List demoPatients = [
   Patient(
-      accountid: "One",
+      patientid: "One",
       name: "Ekam",
-      age: "01-03-2021",
+      age: "01",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofadmission: "01-03-2021"),
   Patient(
-      accountid: "Two",
+      patientid: "Two",
       name: "Dve",
-      age: "01-03-2021",
+      age: "02",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofadmission: "02-03-2021"),
   Patient(
-      accountid: "Three",
+      patientid: "Theee",
       name: "Treeni",
-      age: "01-03-2021",
+      age: "03",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofadmission: "03-03-2021"),
+  Patient(
+      patientid: "Four",
+      name: "Chatvaari",
+      age: "04",
+      gender: "Male",
+      dateofadmission: "04-03-2021")
+
 ];

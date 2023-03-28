@@ -1,5 +1,11 @@
 import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'Booking.dart';
+import 'Payment.dart';
+import 'Purchase.dart';
+import 'Treatment.dart';
 
 class CloudStorageInfo {
   final String? svgSrc, title, totalStorage;
@@ -16,36 +22,40 @@ class CloudStorageInfo {
   });
 }
 
+// var sum = numbers.reduce((v, e) => v + e);
+// var sum = products.map((product) => product.price).reduce((v, e) => v + e);
+
 List demoMyFiles = [
   CloudStorageInfo(
     title: "Travel",
-    numOfFiles: 1328,
+    numOfFiles: demoBookings.length,
     svgSrc: "assets/icons/flight.svg",
-    totalStorage: "190",
+    totalStorage: NumberFormat.compactCurrency(locale: 'EN-us',symbol: "\$").format(totalBookings),
     color: primaryColor,
     percentage: 35,
   ),
   CloudStorageInfo(
     title: "Health care",
-    numOfFiles: 1328,
+    numOfFiles: demoTreatments.length,
     svgSrc: "assets/icons/pill5.svg",
-    totalStorage: "29",
+    totalStorage: NumberFormat.compactCurrency(locale: 'EN-us',symbol: "\$").format(totalTreatmentCost),
     color: Color(0xFFFFA113),
     percentage: 35,
   ),
   CloudStorageInfo(
     title: "Banking",
-    numOfFiles: 1328,
+    numOfFiles: demoPayments.length,
     svgSrc: "assets/icons/cash.svg",
-    totalStorage: "16",
+    totalStorage: NumberFormat.compactCurrency(locale: 'EN-us',symbol: "\$").format(totalBalance),
     color: Color(0xFFFFA4EB),
     percentage: 10,
   ),
   CloudStorageInfo(
     title: "Shopping",
-    numOfFiles: 5328,
+    numOfFiles: demoPurchases.length,
     svgSrc: "assets/icons/laptop5.svg",
-    totalStorage: "730",
+    totalStorage:
+    NumberFormat.compactCurrency(locale: 'EN-us',symbol: "\$").format(totalPurchases),
     color: Color(0xFF54DC10),
     percentage: 78,
   ),

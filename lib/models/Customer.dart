@@ -1,35 +1,34 @@
+// CustomerId. Name. Age. Gender. DateOfPurchase
+// Slno. CustomerId. ItemPurchased. Price. Quantity.
+
 class Customer {
-  final String? accountid, name, age, gender, dateofjoining, openiningbalance;
+  final String? customerid, name, age, gender, dateofregistration;
 
   Customer(
-      {this.accountid,
+      {this.customerid,
       this.name,
       this.age,
       this.gender,
-      this.dateofjoining,
-      this.openiningbalance});
+      this.dateofregistration});
 }
 
 List demoCustomers = [
   Customer(
-      accountid: "One",
+      customerid: "One",
       name: "Ekam",
-      age: "01-03-2021",
+      age: "01",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofregistration: "01-03-2021"),
   Customer(
-      accountid: "Two",
+      customerid: "Two",
       name: "Dve",
-      age: "01-03-2021",
+      age: "02",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofregistration: "02-03-2021"),
   Customer(
-      accountid: "Three",
+      customerid: "Three",
       name: "Treeni",
-      age: "01-03-2021",
+      age: "03",
       gender: "Male",
-      dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      dateofregistration: "02-03-2021"),
 ];

@@ -77,8 +77,8 @@ DataRow recentBookingDataRow(Booking bookingInfo) {
       DataCell(Text(bookingInfo.passengerid!)),
       DataCell(Text(bookingInfo.origincity!)),
       DataCell(Text("(${bookingInfo.destinationcity!})")),
-      DataCell(Text(bookingInfo.distance!)),
-      DataCell(Text(bookingInfo.price!)),
+      DataCell(Text(bookingInfo.distance!.toString())),
+      DataCell(Text(bookingInfo.price!.toString())),
       DataCell(Text(bookingInfo.dateofjourney!)),
     ],
   );

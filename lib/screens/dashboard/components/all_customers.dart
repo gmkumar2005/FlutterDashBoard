@@ -29,6 +29,9 @@ class Customers extends StatelessWidget {
             child: DataTable2(
               columnSpacing: defaultPadding,
               minWidth: 600,
+              // CustomerId. Name. Age. Gender. DateOfPurchase
+              // Slno. CustomerId. ItemPurchased. Price. Quantity.
+
               columns: [
                 DataColumn(
                   label: Text("Customer ID"),
@@ -37,21 +40,18 @@ class Customers extends StatelessWidget {
                   label: Text("Name"),
                 ),
                 DataColumn(
-                  label: Text("Gender"),
-                ),
-                DataColumn(
                   label: Text("Age"),
                 ),
                 DataColumn(
-                  label: Text("DOJ"),
+                  label: Text("Gender"),
                 ),
                 DataColumn(
-                  label: Text("Balance"),
-                ),
+                  label: Text("Date of registration"),
+                )
               ],
               rows: List.generate(
                 demoCustomers.length,
-                (index) => accountsDataRow(demoCustomers[index]),
+                (index) => customersDataRow(demoCustomers[index]),
               ),
             ),
           ),
@@ -61,15 +61,14 @@ class Customers extends StatelessWidget {
   }
 }
 
-DataRow accountsDataRow(Customer customerInfo) {
+DataRow customersDataRow(Customer customerInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(customerInfo.accountid!)),
+      DataCell(Text(customerInfo.customerid!)),
       DataCell(Text(customerInfo.name!)),
-      DataCell(Text(customerInfo.gender!)),
       DataCell(Text(customerInfo.age!)),
-      DataCell(Text(customerInfo.dateofjoining!)),
-      DataCell(Text(customerInfo.openiningbalance!)),
+      DataCell(Text(customerInfo.gender!)),
+      DataCell(Text(customerInfo.dateofregistration!)),
     ],
   );
 }

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/Treatment.dart';
 
+// PatientID. Name. Age. Gender. DateOfAdmission
+// Slno. PatientID. Diagnosis. Treatment. DateOfTreatment. Cost
+
 class RecentTreatments extends StatelessWidget {
   const RecentTreatments({
     Key? key,
@@ -34,16 +37,19 @@ class RecentTreatments extends StatelessWidget {
                   label: Text("Treatment ID"),
                 ),
                 DataColumn(
-                  label: Text("Account"),
+                  label: Text("Patient ID"),
                 ),
                 DataColumn(
-                  label: Text("Amount Received"),
+                  label: Text("Diagnosis"),
                 ),
                 DataColumn(
-                  label: Text("Amount Paid"),
+                  label: Text("Treatment"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("Date of treatment"),
+                ),
+                DataColumn(
+                  label: Text("Price"),
                 ),
               ],
               rows: List.generate(
@@ -58,14 +64,17 @@ class RecentTreatments extends StatelessWidget {
   }
 }
 
+// Slno. PatientID. Diagnosis. Treatment. DateOfTreatment. Cost
+
 DataRow recentTreatmentDataRow(Treatment treatmentInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(treatmentInfo.txnid!)),
-      DataCell(Text(treatmentInfo.accountid!)),
-      DataCell(Text(treatmentInfo.amountrecieved!)),
-      DataCell(Text("(${treatmentInfo.amountpaid!})")),
-      DataCell(Text(treatmentInfo.dataofpayment!)),
+      DataCell(Text(treatmentInfo.treatmentid!)),
+      DataCell(Text(treatmentInfo.patientid!)),
+      DataCell(Text(treatmentInfo.diagnosis!)),
+      DataCell(Text(treatmentInfo.treatment!)),
+      DataCell(Text(treatmentInfo.dateoftreatment!)),
+      DataCell(Text(treatmentInfo.price.toString()!)),
     ],
   );
 }

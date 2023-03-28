@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/Patient.dart';
 
+// PatientID. Name. Age. Gender. DateOfAdmission
+// Slno. PatientID. Diagnosis. Treatment. DateOfTreatment. Cost
+
 class Patients extends StatelessWidget {
   const Patients({
     Key? key,
@@ -37,17 +40,14 @@ class Patients extends StatelessWidget {
                   label: Text("Name"),
                 ),
                 DataColumn(
-                  label: Text("Gender"),
-                ),
-                DataColumn(
                   label: Text("Age"),
                 ),
                 DataColumn(
-                  label: Text("DOJ"),
+                  label: Text("Gender"),
                 ),
                 DataColumn(
-                  label: Text("Balance"),
-                ),
+                  label: Text("Date of admission"),
+                )
               ],
               rows: List.generate(
                 demoPatients.length,
@@ -64,12 +64,11 @@ class Patients extends StatelessWidget {
 DataRow patientsDataRow(Patient patientInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(patientInfo.accountid!)),
+      DataCell(Text(patientInfo.patientid!)),
       DataCell(Text(patientInfo.name!)),
-      DataCell(Text(patientInfo.gender!)),
       DataCell(Text(patientInfo.age!)),
-      DataCell(Text(patientInfo.dateofjoining!)),
-      DataCell(Text(patientInfo.openiningbalance!)),
+      DataCell(Text(patientInfo.gender!)),
+      DataCell(Text(patientInfo.dateofadmission!)),
     ],
   );
 }

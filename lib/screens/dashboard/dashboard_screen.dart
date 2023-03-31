@@ -64,7 +64,7 @@ class _DashboardWidgetState extends State<DashboardScreen> {
 
   _showSnapShotDetails() {
     return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
-      log("Received Navbar state ${state} ");
+      log("Received Navbar state $state ");
       switch (state) {
         case NavbarItem.dashboard:
           if (!Responsive.isMobile(context))
@@ -84,7 +84,7 @@ class _DashboardWidgetState extends State<DashboardScreen> {
 
   _showSnapShot() {
     return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
-      log("Received Navbar state ${state} ");
+      log("Received Navbar state $state ");
       switch (state) {
         case NavbarItem.dashboard:
         // On Mobile means if the screen is less than 850 we dont want to show it
@@ -106,7 +106,7 @@ class _DashboardWidgetState extends State<DashboardScreen> {
   // dashboard, passengers, bookings, patients, treatments, accounts, payments, customers, purchases
   _getGridScreen() {
     return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
-      log("Received Navbar state ${state} ");
+      log("Received Navbar state $state ");
       switch (state) {
         case NavbarItem.dashboard:
           return RecentTransactions();

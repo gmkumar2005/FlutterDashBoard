@@ -409,6 +409,62 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "6ca493fc-ca42-48c7-bbc3-b09ffe9c5a4b",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "patients",
+      "responses": [
+        {
+          "uuid": "d5dfbda6-8f3f-4c7f-b948-a335819381e0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "4aoc",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "50924a94-6c5d-4d57-a61b-0f775482e7b5",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "treatments",
+      "responses": [
+        {
+          "uuid": "a8ea1780-62f3-44d4-a95f-889d17b79df5",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "0qeb",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -447,6 +503,14 @@
     {
       "type": "route",
       "uuid": "187a92e9-f2ed-4bad-a750-d33cede884e6"
+    },
+    {
+      "type": "route",
+      "uuid": "6ca493fc-ca42-48c7-bbc3-b09ffe9c5a4b"
+    },
+    {
+      "type": "route",
+      "uuid": "50924a94-6c5d-4d57-a61b-0f775482e7b5"
     }
   ],
   "proxyMode": false,
@@ -508,11 +572,25 @@
       "value": "[\n  {{#repeat 10}}\n  {\n      \"passengerid\":  \"{{@index}}\",\n      \"name\": \"{{faker 'internet.userName'}}\",\n      \"age\": {{faker 'datatype.number' min=2 max=75}},\n      \"gender\": \"{{faker 'name.sex'}}\",\n      \"dateofbirth\": \"{{date '1975-11-20' '2000-11-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
     },
     {
+      "uuid": "87a647dc-2832-4d9e-9537-67ccf7669d2e",
+      "id": "4aoc",
+      "name": "Patients",
+      "documentation": "",
+      "value": "[\n  {{#repeat 10}}\n  {\n      \"patientid\":  \"{{@index}}\",\n      \"name\": \"{{faker 'internet.userName'}}\",\n      \"age\": {{faker 'datatype.number' min=2 max=75}},\n      \"gender\": \"{{faker 'name.sex'}}\",\n      \"dateofadmission\": \"{{date '1975-11-20' '2000-11-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
+    },
+    {
       "uuid": "f7140ab9-c64d-4796-939a-4de1af3ca501",
       "id": "evt7",
       "name": "Bookings",
       "documentation": "",
       "value": "[\n  {{#repeat 40}}\n  {\n    \"bookingid\": \"{{faker 'datatype.uuid'}}\",\n    \"passengerid\": \"{{faker 'datatype.number' min=1 max=5}}\",\n    \"origincity\":  \"{{faker 'address.cityName'}}\",\n    \"destinationcity\": \"{{faker 'address.cityName'}}\",\n    \"distance\":{{faker 'datatype.number' min=100 max=5000}},\n    \"price\": {{faker 'datatype.number' min=200 max=500}},\n    \"dateofjourney\":  \"{{date '2023-3-20' '2023-3-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "0234146e-ee24-4a12-a0e3-d5c3df7fedfc",
+      "id": "0qeb",
+      "name": "Treatments",
+      "documentation": "",
+      "value": "[\n  {{#repeat 40}}\n  {\n    \"treatmentid\": \"{{faker 'datatype.uuid'}}\",\n    \"patientid\": \"{{faker 'datatype.number' min=1 max=5}}\",\n    \"diagnosis\":  \"{{faker 'address.cityName'}}\",\n    \"treatment\": \"{{faker 'address.cityName'}}\",\n    \"price\": {{faker 'datatype.number' min=200 max=500}},\n    \"dateoftreatment\":  \"{{date '2023-3-20' '2023-3-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
     }
   ]
 }

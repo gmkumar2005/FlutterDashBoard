@@ -34,7 +34,7 @@ class Customers extends StatelessWidget {
 
               columns: [
                 DataColumn(
-                  label: Text("Customer ID"),
+                  label: Text("Customer id"),
                 ),
                 DataColumn(
                   label: Text("Name"),

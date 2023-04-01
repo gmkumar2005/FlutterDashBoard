@@ -23,3 +23,22 @@ class LoadBookingEvent extends BookingEvent {
 }
 
 
+@immutable
+abstract class PatientEvent extends Equatable {
+  const PatientEvent();
+}
+
+class LoadPatientEvent extends PatientEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+@immutable
+abstract class TreatmentEvent extends Equatable {
+  const TreatmentEvent();
+}
+
+class LoadTreatmentEvent extends TreatmentEvent {
+  @override
+  List<Object?> get props => [];
+}

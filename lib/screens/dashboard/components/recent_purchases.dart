@@ -33,10 +33,10 @@ class RecentPurchases extends StatelessWidget {
               // Slno. CustomerId. ItemPurchased. Price. Quantity.
               columns: [
                 DataColumn(
-                  label: Text("Purchase ID"),
+                  label: Text("Purchase id"),
                 ),
                 DataColumn(
-                  label: Text("Customer ID"),
+                  label: Text("Customer id"),
                 ),
                 DataColumn(
                   label: Text("Item purchased"),

@@ -76,7 +76,7 @@ Widget _renderTable(BuildContext context,List<Passenger> passengerList) {
             minWidth: 600,
             columns: [
               DataColumn(
-                label: Text("Passenger ID"),
+                label: Text("Passenger id"),
               ),
               DataColumn(
                 label: Text("Name"),

@@ -37,3 +37,36 @@ class BookingBloc extends Bloc<BookingEvent, BookingState> {
   }
 }
 
+class PatientBloc extends Bloc<PatientEvent, PatientState> {
+  final PatientRepository _patientRepository;
+
+  PatientBloc(this._patientRepository) : super(PatientLoadingState()) {
+    on<LoadPatientEvent>((event, emit) async {
+      emit(PatientLoadingState());
+      try {
+        final patients = await _patientRepository.getPatients();
+        emit(PatientLoadedState(patients));
+      } catch (e) {
+        print(e);
+        emit(PatientErrorState(e.toString()));
+      }
+    });
+  }
+}
+
+class TreatmentBloc extends Bloc<TreatmentEvent, TreatmentState> {
+  final TreatmentRepository _treatmentRepository;
+
+  TreatmentBloc(this._treatmentRepository) : super(TreatmentLoadingState()) {
+    on<LoadTreatmentEvent>((event, emit) async {
+      emit(TreatmentLoadingState());
+      try {
+        final treatments = await _treatmentRepository.getTreatments();
+        emit(TreatmentLoadedState(treatments));
+      } catch (e) {
+        print(e);
+        emit(TreatmentErrorState(e.toString()));
+      }
+    });
+  }
+}

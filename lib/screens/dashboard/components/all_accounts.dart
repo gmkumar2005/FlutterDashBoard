@@ -31,7 +31,7 @@ class Accounts extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Account ID"),
+                  label: Text("Account id"),
                 ),
                 DataColumn(
                   label: Text("Name"),

@@ -2,12 +2,9 @@
 // Slno. PatientID. Diagnosis. Treatment. DateOfTreatment. Cost
 
 class Treatment {
-  final String? treatmentid,
-      patientid,
-      diagnosis,
-      treatment,
-      dateoftreatment;
-final double? price;
+  final String? treatmentid, patientid, diagnosis, treatment, dateoftreatment;
+  final double? price;
+
   Treatment(
       {this.treatmentid,
       this.patientid,
@@ -15,6 +12,23 @@ final double? price;
       this.treatment,
       this.dateoftreatment,
       this.price});
+
+  Treatment.fromJson(Map<String, dynamic> json)
+      : treatmentid = json['treatmentid'],
+        patientid = json['patientid'],
+        diagnosis = json['diagnosis'],
+        treatment = json['treatment'],
+        dateoftreatment = json['dateoftreatment'],
+        price = json['price'];
+
+  Map<String, dynamic> toJson() => {
+        'treatmentid': treatmentid,
+        'patientid': patientid,
+        'diagnosis': diagnosis,
+        'treatment': treatment,
+        'dateoftreatment': dateoftreatment,
+        'price': price,
+      };
 }
 
 List demoTreatments = [
@@ -46,11 +60,10 @@ List demoTreatments = [
       treatment: "Third treatment",
       dateoftreatment: "03-03-2021",
       price: 400),
-
 ];
 
 double? totalTreatmentCost =
-demoTreatments.map((product) => product.price).reduce((v, e) => v! + e!);
+    demoTreatments.map((product) => product.price).reduce((v, e) => v! + e!);
 // double? sumofDistance =
 // demoBookings.map((product) => product.distance).reduce((v, e) => v! + e!);
 // double? totalBookings = sumofprice! * sumofDistance!;

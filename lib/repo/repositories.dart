@@ -3,6 +3,8 @@ import 'package:admin/models/Passenger.dart';
 import 'package:http/http.dart';
 
 import '../models/Booking.dart';
+import '../models/Patient.dart';
+import '../models/Treatment.dart';
 class PassengerRepository {
   String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/passengers';
@@ -29,6 +31,43 @@ class BookingsRepository {
     if (response.statusCode == 200) {
       final List result = jsonDecode(response.body);
       return result.map((e) => Booking.fromJson(e)).toList();
+    } else {
+      print(response.reasonPhrase);
+      throw Exception(response.reasonPhrase);
+    }
+  }
+}
+
+
+class PatientRepository {
+  String baseUrl = 'http://127.0.0.1:3001/';
+  String resourcePath = '/patients';
+
+  Future<List<Patient>> getPatients() async {
+    Response response = await get(Uri.parse(baseUrl+resourcePath));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body);
+      return result.map((e) => Patient.fromJson(e)).toList();
+    } else {
+      print(response.reasonPhrase);
+      throw Exception(response.reasonPhrase);
+    }
+  }
+}
+
+
+
+class TreatmentRepository {
+  String baseUrl = 'http://127.0.0.1:3001/';
+  String resourcePath = '/treatments';
+
+  Future<List<Treatment>> getTreatments() async {
+    Response response = await get(Uri.parse(baseUrl+resourcePath));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body);
+      return result.map((e) => Treatment.fromJson(e)).toList();
     } else {
       print(response.reasonPhrase);
       throw Exception(response.reasonPhrase);

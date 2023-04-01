@@ -39,68 +39,58 @@ class Header extends StatelessWidget {
             "Dashboard",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
         case NavbarItem.passengers:
           return Text(
             "Travel",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
         case NavbarItem.bookings:
           return Text(
             "Travel",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.patients:
           return Text(
             "Health care",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.treatments:
           return Text(
             "Health care",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.accounts:
           return Text(
             "Banking",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.payments:
           return Text(
             "Banking",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.customers:
           return Text(
             "Shopping",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         case NavbarItem.purchases:
           return Text(
             "Shopping",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
 
         default:
           return Text(
             "Dashboard",
             style: Theme.of(context).textTheme.titleMedium,
           );
-          break;
       }
     });
   }

@@ -52,10 +52,8 @@ _showTitle(){
           "My Portfolio",
           style: Theme.of(context).textTheme.titleMedium,
         );
-        break;
       default:
         return Container();
-        break;
     }
   });
 
@@ -76,7 +74,6 @@ _showInfoCards() {
             childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
             ),
             );
-        break;
       default:
         return Responsive(
           mobile: FileInfoCardGridView(
@@ -88,7 +85,6 @@ _showInfoCards() {
             childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
           ),
         );
-        break;
     }
   });
 }

@@ -74,10 +74,8 @@ class _DashboardWidgetState extends State<DashboardScreen> {
             );
           else
             return Container();
-          break;
         default:
           return Container();
-          break;
       }
     });
   }
@@ -95,10 +93,8 @@ class _DashboardWidgetState extends State<DashboardScreen> {
             );
           else
             return Container();
-          break;
         default:
           return Container();
-          break;
       }
     });
   }
@@ -110,41 +106,31 @@ class _DashboardWidgetState extends State<DashboardScreen> {
       switch (state) {
         case NavbarItem.dashboard:
           return RecentTransactions();
-          break;
         case NavbarItem.passengers:
           return Passengers();
-          break;
         case NavbarItem.bookings:
           return RecentBookings();
-          break;
 
         case NavbarItem.patients:
           return Patients();
-          break;
 
         case NavbarItem.treatments:
           return RecentTreatments();
-          break;
 
         case NavbarItem.accounts:
           return Accounts();
-          break;
 
         case NavbarItem.payments:
           return RecentPayments();
-          break;
 
         case NavbarItem.customers:
           return Customers();
-          break;
 
         case NavbarItem.purchases:
           return RecentPurchases();
-          break;
 
         default:
           return RecentTransactions();
-          break;
       }
     });
   }

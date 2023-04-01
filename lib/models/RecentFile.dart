@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 class RecentTransaction {
   final String? icon, title, date, size;
 

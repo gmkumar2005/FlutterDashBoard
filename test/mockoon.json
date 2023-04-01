@@ -465,6 +465,118 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "b6fc2ac8-c199-4d8f-8f95-5d20046aee85",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "accounts",
+      "responses": [
+        {
+          "uuid": "257a15a8-20b7-4863-b8c6-ba6aa91c8846",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "orjv",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9e7a4658-5b1c-4c09-9e09-38a918711690",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "payments",
+      "responses": [
+        {
+          "uuid": "e9713805-0ce8-4177-b90f-3564bf87f427",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "51hi",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "cf105902-2fe4-4d20-bcbf-0985f6cf8640",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "customers",
+      "responses": [
+        {
+          "uuid": "8b4bc939-d0e3-44b8-a699-19a3d0416220",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "75bh",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3be6d713-33d5-4b0b-85f1-4d64dcfb68a0",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "purchases",
+      "responses": [
+        {
+          "uuid": "e107e82b-7c22-4e98-a8db-605058486250",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "yew3",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -511,6 +623,22 @@
     {
       "type": "route",
       "uuid": "50924a94-6c5d-4d57-a61b-0f775482e7b5"
+    },
+    {
+      "type": "route",
+      "uuid": "b6fc2ac8-c199-4d8f-8f95-5d20046aee85"
+    },
+    {
+      "type": "route",
+      "uuid": "9e7a4658-5b1c-4c09-9e09-38a918711690"
+    },
+    {
+      "type": "route",
+      "uuid": "cf105902-2fe4-4d20-bcbf-0985f6cf8640"
+    },
+    {
+      "type": "route",
+      "uuid": "3be6d713-33d5-4b0b-85f1-4d64dcfb68a0"
     }
   ],
   "proxyMode": false,
@@ -572,6 +700,20 @@
       "value": "[\n  {{#repeat 10}}\n  {\n      \"passengerid\":  \"{{@index}}\",\n      \"name\": \"{{faker 'internet.userName'}}\",\n      \"age\": {{faker 'datatype.number' min=2 max=75}},\n      \"gender\": \"{{faker 'name.sex'}}\",\n      \"dateofbirth\": \"{{date '1975-11-20' '2000-11-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
     },
     {
+      "uuid": "2d7508d9-67b4-447d-a88c-0d6bddc32672",
+      "id": "75bh",
+      "name": "Customers",
+      "documentation": "",
+      "value": "[\n  {{#repeat 10}}\n  {\n      \"customerid\":  \"{{@index}}\",\n      \"name\": \"{{faker 'internet.userName'}}\",\n      \"age\": {{faker 'datatype.number' min=2 max=75}},\n      \"gender\": \"{{faker 'name.sex'}}\",\n      \"dateofregistration\": \"{{date '2023-03-15' '2023-04-15' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "5b819f74-1ea7-4be6-bdf6-840a8193be29",
+      "id": "orjv",
+      "name": "Accounts",
+      "documentation": "",
+      "value": "[\n  {{#repeat 10}}\n  {\n      \"accountid\":  \"{{@index}}\",\n      \"name\": \"{{faker 'internet.userName'}}\",\n      \"age\": {{faker 'datatype.number' min=2 max=75}},\n      \"gender\": \"{{faker 'name.sex'}}\",\n      \"dateofjoining\": \"{{date '1975-11-20' '2000-11-25' 'dd-MM-yyyy'}}\",\n      \"openiningbalance\" : {{faker 'datatype.number' min=200 max=750}}\n  }\n  {{/repeat}}\n]"
+    },
+    {
       "uuid": "87a647dc-2832-4d9e-9537-67ccf7669d2e",
       "id": "4aoc",
       "name": "Patients",
@@ -584,6 +726,20 @@
       "name": "Bookings",
       "documentation": "",
       "value": "[\n  {{#repeat 40}}\n  {\n    \"bookingid\": \"{{faker 'datatype.uuid'}}\",\n    \"passengerid\": \"{{faker 'datatype.number' min=1 max=5}}\",\n    \"origincity\":  \"{{faker 'address.cityName'}}\",\n    \"destinationcity\": \"{{faker 'address.cityName'}}\",\n    \"distance\":{{faker 'datatype.number' min=100 max=5000}},\n    \"price\": {{faker 'datatype.number' min=200 max=500}},\n    \"dateofjourney\":  \"{{date '2023-3-20' '2023-3-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "b2495dc3-8470-483d-b527-d879ca0971f5",
+      "id": "yew3",
+      "name": "Purchases",
+      "documentation": "",
+      "value": "[\n  {{#repeat 40}}\n  {\n    \"purchaseid\": \"{{faker 'datatype.uuid'}}\",\n    \"customerid\": \"{{faker 'datatype.number' min=1 max=5}}\",\n    \"itempurchased\":  \"{{faker 'commerce.productName'}}\",\n    \"price\": {{faker 'datatype.number' min=200 max=500}},\n    \"quantity\":{{faker 'datatype.number' min=1 max=50}},\n    \"dateofpurchase\":  \"{{date '2023-3-20' '2023-3-25' 'dd-MM-yyyy'}}\"\n  }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "a1603954-d4eb-4453-bb3a-d16b8c39223f",
+      "id": "51hi",
+      "name": "Payments",
+      "documentation": "",
+      "value": "[\n  {{#repeat 40}}\n  {\n    \"paymentid\": \"{{faker 'datatype.uuid'}}\",\n    \"accountid\": \"{{faker 'datatype.number' min=1 max=5}}\",\n    \"amountpaid\":  {{faker 'datatype.number' min=100 max=5000 precision=0.01}},\n    \"amountrecieved\":{{faker 'datatype.number' min=100 max=5000 precision=0.01}},\n    \"dateofpayment\":\"{{date '2023-3-20' '2023-3-25' 'dd-MM-yyyy'}}\",\n    \"purpose\": \"{{faker 'lorem.sentence' 5 }}\"\n  }\n  {{/repeat}}\n]"
     },
     {
       "uuid": "0234146e-ee24-4a12-a0e3-d5c3df7fedfc",

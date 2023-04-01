@@ -63,3 +63,23 @@ class LoadPaymentEvent extends PaymentEvent {
   List<Object?> get props => [];
 }
 
+@immutable
+abstract class CustomerEvent extends Equatable {
+  const CustomerEvent();
+}
+
+class LoadCustomerEvent extends CustomerEvent {
+  @override
+  List<Object?> get props => [];
+}
+
+
+@immutable
+abstract class PurchaseEvent extends Equatable {
+  const PurchaseEvent();
+}
+
+class LoadPurchaseEvent extends PurchaseEvent {
+  @override
+  List<Object?> get props => [];
+}

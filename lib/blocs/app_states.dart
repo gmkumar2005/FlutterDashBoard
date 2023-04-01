@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 
 import '../models/Account.dart';
 import '../models/Booking.dart';
+import '../models/Customer.dart';
 import '../models/Patient.dart';
 import '../models/Payment.dart';
+import '../models/Purchase.dart';
 import '../models/Treatment.dart';
 
 @immutable
@@ -159,6 +161,58 @@ class PaymentErrorState extends PaymentState {
   final String error;
 
   PaymentErrorState(this.error);
+
+  @override
+  List<Object?> get props => [error];
+}
+
+@immutable
+abstract class CustomerState extends Equatable {}
+
+class CustomerLoadingState extends CustomerState {
+  @override
+  List<Object?> get props => [];
+}
+
+class CustomerLoadedState extends CustomerState {
+  final List<Customer> customers;
+
+  CustomerLoadedState(this.customers);
+
+  @override
+  List<Object?> get props => [customers];
+}
+
+class CustomerErrorState extends CustomerState {
+  final String error;
+
+  CustomerErrorState(this.error);
+
+  @override
+  List<Object?> get props => [error];
+}
+
+@immutable
+abstract class PurchaseState extends Equatable {}
+
+class PurchaseLoadingState extends PurchaseState {
+  @override
+  List<Object?> get props => [];
+}
+
+class PurchaseLoadedState extends PurchaseState {
+  final List<Purchase> purchases;
+
+  PurchaseLoadedState(this.purchases);
+
+  @override
+  List<Object?> get props => [purchases];
+}
+
+class PurchaseErrorState extends PurchaseState {
+  final String error;
+
+  PurchaseErrorState(this.error);
 
   @override
   List<Object?> get props => [error];

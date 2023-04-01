@@ -5,8 +5,10 @@ import 'package:http/http.dart';
 
 import '../models/Account.dart';
 import '../models/Booking.dart';
+import '../models/Customer.dart';
 import '../models/Patient.dart';
 import '../models/Payment.dart';
+import '../models/Purchase.dart';
 import '../models/Treatment.dart';
 
 class PassengerRepository {
@@ -104,6 +106,41 @@ class PaymentsRepository {
     if (response.statusCode == 200) {
       final List result = jsonDecode(response.body);
       return result.map((e) => Payment.fromJson(e)).toList();
+    } else {
+      print(response.reasonPhrase);
+      throw Exception(response.reasonPhrase);
+    }
+  }
+}
+
+
+class CustomerRepository {
+  String baseUrl = 'http://127.0.0.1:3001/';
+  String resourcePath = '/customers';
+
+  Future<List<Customer>> getCustomers() async {
+    Response response = await get(Uri.parse(baseUrl + resourcePath));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body);
+      return result.map((e) => Customer.fromJson(e)).toList();
+    } else {
+      print(response.reasonPhrase);
+      throw Exception(response.reasonPhrase);
+    }
+  }
+}
+
+class PurchaseRepository {
+  String baseUrl = 'http://127.0.0.1:3001/';
+  String resourcePath = '/purchases';
+
+  Future<List<Purchase>> getPurchases() async {
+    Response response = await get(Uri.parse(baseUrl + resourcePath));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body);
+      return result.map((e) => Purchase.fromJson(e)).toList();
     } else {
       print(response.reasonPhrase);
       throw Exception(response.reasonPhrase);

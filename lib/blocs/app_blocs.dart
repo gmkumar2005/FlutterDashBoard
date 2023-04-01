@@ -104,3 +104,37 @@ class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
     });
   }
 }
+
+class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
+  final CustomerRepository _customerRepository;
+
+  CustomerBloc(this._customerRepository) : super(CustomerLoadingState()) {
+    on<LoadCustomerEvent>((event, emit) async {
+      emit(CustomerLoadingState());
+      try {
+        final customers = await _customerRepository.getCustomers();
+        emit(CustomerLoadedState(customers));
+      } catch (e) {
+        print(e);
+        emit(CustomerErrorState(e.toString()));
+      }
+    });
+  }
+}
+
+class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
+  final PurchaseRepository _purchaseRepository;
+
+  PurchaseBloc(this._purchaseRepository) : super(PurchaseLoadingState()) {
+    on<LoadPurchaseEvent>((event, emit) async {
+      emit(PurchaseLoadingState());
+      try {
+        final purchases = await _purchaseRepository.getPurchases();
+        emit(PurchaseLoadedState(purchases));
+      } catch (e) {
+        print(e);
+        emit(PurchaseErrorState(e.toString()));
+      }
+    });
+  }
+}

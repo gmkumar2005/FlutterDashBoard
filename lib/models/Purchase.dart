@@ -2,7 +2,7 @@
 // Slno. CustomerId. ItemPurchased. Price. Quantity.
 
 class Purchase {
-  final String? purchaseid, customerid, itempurchased;
+  final String? purchaseid, customerid, itempurchased,dateofpurchase;
   final double? price;
   final double? quantity;
 
@@ -11,7 +11,26 @@ class Purchase {
       this.customerid,
       this.itempurchased,
       this.price,
-      this.quantity});
+      this.quantity,
+      this.dateofpurchase});
+
+  Purchase.fromJson(Map<String, dynamic> json)
+      : purchaseid = json['purchaseid'],
+        customerid = json['customerid'],
+        itempurchased = json['itempurchased'],
+        price = json['price'],
+        quantity = json['quantity'],
+  dateofpurchase = json['dateofpurchase'];
+
+  Map<String, dynamic> toJson() => {
+        'purchaseid': purchaseid,
+        'customerid': customerid,
+        'itempurchased': itempurchased,
+        'price': price,
+        'quantity': quantity,
+        'dateofpurchase': dateofpurchase,
+
+      };
 }
 
 List<Purchase> demoPurchases = [
@@ -21,6 +40,7 @@ List<Purchase> demoPurchases = [
     itempurchased: "Laptop",
     price: 100,
     quantity: 1,
+    dateofpurchase: "01-03-2021",
   ),
   Purchase(
     purchaseid: "2",
@@ -28,6 +48,7 @@ List<Purchase> demoPurchases = [
     itempurchased: "Mouse",
     price: 200,
     quantity: 2,
+    dateofpurchase: "01-03-2021",
   ),
   Purchase(
     purchaseid: "3",
@@ -35,11 +56,12 @@ List<Purchase> demoPurchases = [
     itempurchased: "Memory",
     price: 300,
     quantity: 3,
+    dateofpurchase: "01-03-2021",
   ),
 ];
 
 double? sumofprice =
-demoPurchases.map((product) => product.price).reduce((v, e) => v! + e!);
+    demoPurchases.map((product) => product.price).reduce((v, e) => v! + e!);
 double? sumofQuantity =
-demoPurchases.map((product) => product.quantity).reduce((v, e) => v! + e!);
+    demoPurchases.map((product) => product.quantity).reduce((v, e) => v! + e!);
 double? totalPurchases = sumofprice! * sumofQuantity!;

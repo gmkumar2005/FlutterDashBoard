@@ -1,5 +1,7 @@
 class Account {
-  final String? accountid, name, age, gender, dateofjoining, openiningbalance;
+  final String? accountid, name, gender, dateofjoining;
+  final int? age;
+  final double? openiningbalance;
 
   Account(
       {this.accountid,
@@ -8,28 +10,45 @@ class Account {
       this.gender,
       this.dateofjoining,
       this.openiningbalance});
+
+  Account.fromJson(Map<String, dynamic> json)
+      : accountid = json['accountid'],
+        name = json['name'],
+        age = json['age'],
+        gender = json['gender'],
+        dateofjoining = json['dateofjoining'],
+        openiningbalance = json['openiningbalance'];
+
+  Map<String, dynamic> toJson() => {
+        'accountid': accountid,
+        'name': name,
+        'age': age,
+        'gender': gender,
+        'dateofjoining': dateofjoining,
+        'openiningbalance': openiningbalance,
+      };
 }
 
 List demoAccounts = [
   Account(
       accountid: "One",
       name: "Ekam",
-      age: "01-03-2021",
+      age: 21,
       gender: "Male",
       dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      openiningbalance: 12313),
   Account(
       accountid: "Two",
       name: "Dve",
-      age: "01-03-2021",
+      age: 22,
       gender: "Male",
       dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      openiningbalance: 12313),
   Account(
       accountid: "Three",
       name: "Treeni",
-      age: "01-03-2021",
+      age: 23,
       gender: "Male",
       dateofjoining: "01-03-2021",
-      openiningbalance: "12313"),
+      openiningbalance: 12313),
 ];

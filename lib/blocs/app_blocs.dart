@@ -70,3 +70,37 @@ class TreatmentBloc extends Bloc<TreatmentEvent, TreatmentState> {
     });
   }
 }
+
+class AccountBloc extends Bloc<AccountEvent, AccountState> {
+  final AccountRepository _accountRepository;
+
+  AccountBloc(this._accountRepository) : super(AccountLoadingState()) {
+    on<LoadAccountEvent>((event, emit) async {
+      emit(AccountLoadingState());
+      try {
+        final accounts = await _accountRepository.getAccounts();
+        emit(AccountLoadedState(accounts));
+      } catch (e) {
+        print(e);
+        emit(AccountErrorState(e.toString()));
+      }
+    });
+  }
+}
+
+class PaymentBloc extends Bloc<PaymentEvent, PaymentState> {
+  final PaymentsRepository _paymentRepository;
+
+  PaymentBloc(this._paymentRepository) : super(PaymentLoadingState()) {
+    on<LoadPaymentEvent>((event, emit) async {
+      emit(PaymentLoadingState());
+      try {
+        final payments = await _paymentRepository.getPayments();
+        emit(PaymentLoadedState(payments));
+      } catch (e) {
+        print(e);
+        emit(PaymentErrorState(e.toString()));
+      }
+    });
+  }
+}

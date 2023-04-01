@@ -1,7 +1,6 @@
 import 'package:admin/blocs/app_blocs.dart';
 import 'package:admin/blocs/app_events.dart';
 import 'package:admin/blocs/app_states.dart';
-import 'package:admin/models/Payment.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +23,7 @@ class RecentBookings extends StatelessWidget {
               BookingBloc(BookingsRepository()),
         ),
       ],
-      child: _renderPassengerBlock(),
+      child: _renderBookingsBlock(),
     );
   }
 }
@@ -32,7 +31,7 @@ class RecentBookings extends StatelessWidget {
 //   final String? bookingid, passengerid, origincity, destinationcity, distance, price, dateofjourney;
 
 
-Widget _renderPassengerBlock() {
+Widget _renderBookingsBlock() {
   return BlocProvider(
       create: (context) => BookingBloc(
         BookingsRepository(),

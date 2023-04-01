@@ -1,52 +1,67 @@
 class Payment {
-  final String? txnid,
-      accountid,
-      dataofpayment,
-      purpose;
-final double? amountrecieved,amountpaid;
+  final String? paymentid, accountid, dateofpayment, purpose;
+  final double? amountrecieved, amountpaid;
+
   Payment(
-      {this.txnid,
+      {this.paymentid,
       this.accountid,
       this.amountpaid,
       this.amountrecieved,
-      this.dataofpayment,
+      this.dateofpayment,
       this.purpose});
+
+  Payment.fromJson(Map<String, dynamic> json)
+      : paymentid = json['paymentid'],
+        accountid = json['accountid'],
+        amountpaid = json['amountpaid'],
+        amountrecieved = json['amountrecieved'],
+        dateofpayment = json['dateofpayment'],
+        purpose = json['purpose'];
+
+  Map<String, dynamic> toJson() => {
+        'paymentid': paymentid,
+        'accountid': accountid,
+        'amountpaid': amountpaid,
+        'amountrecieved': amountrecieved,
+        'dateofpayment': dateofpayment,
+        'purpose': purpose
+      };
 }
 
 List demoPayments = [
   Payment(
-      txnid: "1",
+      paymentid: "1",
       accountid: "ekam",
       amountpaid: 100,
       amountrecieved: 0,
-      dataofpayment: "01-03-2021",
+      dateofpayment: "01-03-2021",
       purpose: "Loan"),
   Payment(
-      txnid: "2",
+      paymentid: "2",
       accountid: "ekam",
       amountpaid: 2000,
       amountrecieved: 0,
-      dataofpayment: "02-03-2021",
+      dateofpayment: "02-03-2021",
       purpose: "Goods and services"),
   Payment(
-      txnid: "3",
+      paymentid: "3",
       accountid: "treeni",
       amountpaid: 3000,
       amountrecieved: 0,
-      dataofpayment: "03-03-2021",
+      dateofpayment: "03-03-2021",
       purpose: "Goods and services"),
   Payment(
-      txnid: "4",
+      paymentid: "4",
       accountid: "chatvaari",
       amountpaid: 0,
       amountrecieved: 1231231,
-      dataofpayment: "04-03-2021",
+      dateofpayment: "04-03-2021",
       purpose: "Goods and services"),
-
 ];
 
 double? sumofamountpaid =
-demoPayments.map((product) => product.amountpaid).reduce((v, e) => v! + e!);
-double? sumofAmountRecieved =
-demoPayments.map((product) => product.amountrecieved).reduce((v, e) => v! + e!);
+    demoPayments.map((product) => product.amountpaid).reduce((v, e) => v! + e!);
+double? sumofAmountRecieved = demoPayments
+    .map((product) => product.amountrecieved)
+    .reduce((v, e) => v! + e!);
 double? totalBalance = sumofAmountRecieved! - sumofamountpaid!;

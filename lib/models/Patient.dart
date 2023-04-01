@@ -24,7 +24,7 @@ class Patient {
       };
 }
 
-List demoPatients = [
+List<Patient> demoPatients = [
   Patient(
       patientid: "One",
       name: "Ekam",

@@ -44,7 +44,18 @@ Widget _renderBookingsBlock() {
             );
           }
           if (state is BookingErrorState) {
-            return  Center(child:  Text("Error ${state.error}"));
+            return Column(children: [
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Showing demo data"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Expanded(child: _renderTable(context, demoBookings))])
+
+            ]);
           }
           if (state is BookingLoadedState) {
             List<Booking> bookingsList = state.bookings;
@@ -112,7 +123,7 @@ Widget _renderTable(BuildContext context,List<Booking> bookingsList) {
 
 }
 DataRow recentBookingDataRow(Booking bookingInfo) {
-  var bookingidShort = bookingInfo.bookingid!.substring(bookingInfo.bookingid!.length - 8);
+  var bookingidShort = bookingInfo.bookingid!.characters.takeLast(8).toString();
   return DataRow(
     cells: [
       DataCell(Text(bookingidShort)),

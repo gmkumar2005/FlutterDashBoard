@@ -44,18 +44,29 @@ Widget _renderPassengerBlock() {
             );
           }
           if (state is PassengerErrorState) {
-            return  Center(child:  Text("Error ${state.error}"));
+            return Column(children: [
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Showing demo data"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Expanded(child: _renderTable(context, demoPassengers),)])
+
+            ]);
           }
           if (state is PassengerLoadedState) {
             List<Passenger> passengerList = state.passengers;
-            return  _renderTable(context,passengerList);
+            return _renderTable(context, passengerList);
           }
-           return Container();
+          return Container();
         },
       ));
 }
 
-Widget _renderTable(BuildContext context,List<Passenger> passengerList) {
+Widget _renderTable(BuildContext context, List<Passenger> passengerList) {
   return Container(
     padding: EdgeInsets.all(defaultPadding),
     decoration: BoxDecoration(

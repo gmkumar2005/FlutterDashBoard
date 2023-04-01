@@ -29,7 +29,7 @@ class Passenger {
       };
 }
 
-List demoPassengers = [
+List<Passenger>  demoPassengers = [
   Passenger(
       passengerid: "One",
       name: "Ekam",

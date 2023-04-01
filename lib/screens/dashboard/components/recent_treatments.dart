@@ -44,7 +44,18 @@ Widget _renderTreatmentBlock() {
             );
           }
           if (state is TreatmentErrorState) {
-            return Center(child: Text("Error ${state.error}"));
+            return Column(children: [
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Showing demo data"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Expanded(child: _renderTable(context, demoTreatments))])
+
+            ]);
           }
           if (state is TreatmentLoadedState) {
             List<Treatment> treatmentsList = state.treatments;
@@ -107,8 +118,7 @@ Widget _renderTable(BuildContext context, List<Treatment> treatmentsList) {
 }
 
 DataRow recentTreatmentDataRow(Treatment treatmentInfo) {
-  var treatmentidShort = treatmentInfo.treatmentid!
-      .substring(treatmentInfo.treatmentid!.length - 8);
+  var treatmentidShort = treatmentInfo.treatmentid!.characters.takeLast(8).toString();
   return DataRow(
     cells: [
       DataCell(Text(treatmentidShort)),

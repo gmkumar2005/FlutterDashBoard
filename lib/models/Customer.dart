@@ -28,7 +28,7 @@ class Customer {
       };
 }
 
-List demoCustomers = [
+List<Customer> demoCustomers = [
   Customer(
       customerid: "One",
       name: "Ekam",

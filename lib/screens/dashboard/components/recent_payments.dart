@@ -44,7 +44,18 @@ Widget _renderPaymentsBlock() {
             );
           }
           if (state is PaymentErrorState) {
-            return  Center(child:  Text("Error ${state.error}"));
+            return Column(children: [
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Showing demo data"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Expanded(child: _renderTable(context, demoPayments))])
+
+            ]);
           }
           if (state is PaymentLoadedState) {
             List<Payment> paymentsList = state.payments;
@@ -106,7 +117,7 @@ Widget _renderTable(BuildContext context, List<Payment> paymentsList) {
 }
 
 DataRow recentPaymentDataRow(Payment paymentInfo) {
-  var paymentidShort = paymentInfo.paymentid!.substring(paymentInfo.paymentid!.length - 8);
+  var paymentidShort = paymentInfo.paymentid!.characters.takeLast(8).toString();
   return DataRow(
     cells: [
       DataCell(Text(paymentidShort)),

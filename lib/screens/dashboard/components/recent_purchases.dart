@@ -40,7 +40,18 @@ Widget _renderPurchaseBlock() {
             );
           }
           if (state is PurchaseErrorState) {
-            return Center(child: Text("Error ${state.error}"));
+            return Column(children: [
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Center(child: Text("Showing demo data"))]),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Expanded(child: _renderTable(context, demoPurchases))])
+
+            ]);
           }
           if (state is PurchaseLoadedState) {
             List<Purchase> purchaseList = state.purchases;
@@ -94,7 +105,7 @@ Widget _renderTable(BuildContext context, List<Purchase> purchaseList) {
             ],
             rows: List.generate(
               purchaseList.length,
-              (index) => recentPaymentDataRow(purchaseList[index]),
+              (index) => recentPurchaseDataRow(purchaseList[index]),
             ),
           ),
         ),
@@ -103,8 +114,8 @@ Widget _renderTable(BuildContext context, List<Purchase> purchaseList) {
   );
 }
 
-DataRow recentPaymentDataRow(Purchase purchaseInfo) {
-  var purchaseidShort = purchaseInfo.purchaseid!.substring(purchaseInfo.purchaseid!.length - 8);
+DataRow recentPurchaseDataRow(Purchase purchaseInfo) {
+  var purchaseidShort = purchaseInfo.purchaseid!.characters.takeLast(8).toString();
 
   return DataRow(
     cells: [

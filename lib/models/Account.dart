@@ -29,7 +29,7 @@ class Account {
       };
 }
 
-List demoAccounts = [
+List<Account> demoAccounts = [
   Account(
       accountid: "One",
       name: "Ekam",

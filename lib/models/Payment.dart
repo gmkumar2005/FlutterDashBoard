@@ -28,7 +28,7 @@ class Payment {
       };
 }
 
-List demoPayments = [
+List<Payment> demoPayments = [
   Payment(
       paymentid: "1",
       accountid: "ekam",

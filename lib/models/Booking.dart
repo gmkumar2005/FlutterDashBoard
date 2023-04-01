@@ -38,7 +38,7 @@ class Booking {
       };
 }
 
-List demoBookings = [
+List<Booking> demoBookings = [
   Booking(
       bookingid: "1",
       passengerid: "ekam",

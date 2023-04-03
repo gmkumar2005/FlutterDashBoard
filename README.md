@@ -9,7 +9,8 @@ flutter run -d chrome
 ```
 ### gh-pages integration
 ```shell
-flutter clean build web --base-href FlutterDashboard
+flutter clean
+flutter build web --base-href /FlutterDashboard/
 cp -r ../../FlutterDashBoard/build/web/* .
 ```
 ### Features 

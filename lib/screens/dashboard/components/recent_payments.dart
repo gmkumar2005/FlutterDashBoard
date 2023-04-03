@@ -2,6 +2,7 @@ import 'package:admin/models/Payment.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../blocs/app_blocs.dart';
 import '../../../blocs/app_events.dart';
@@ -17,25 +18,22 @@ class RecentPayments extends StatelessWidget {
   // txnid, accountid, amountpaid, amountrecieved, dateofpayment
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<PaymentBloc>(
-          create: (BuildContext context) =>
-              PaymentBloc(PaymentsRepository()),
+          create: (BuildContext context) => PaymentBloc(PaymentsRepository()),
         ),
       ],
       child: _renderPaymentsBlock(),
     );
-
   }
 }
 
 Widget _renderPaymentsBlock() {
   return BlocProvider(
       create: (context) => PaymentBloc(
-        PaymentsRepository(),
-      )..add(LoadPaymentEvent()),
+            PaymentsRepository(),
+          )..add(LoadPaymentEvent()),
       child: BlocBuilder<PaymentBloc, PaymentState>(
         builder: (context, state) {
           if (state is PaymentLoadingState) {
@@ -45,21 +43,22 @@ Widget _renderPaymentsBlock() {
           }
           if (state is PaymentErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoPayments))])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(child: _renderTable(context, demoPayments))
+              ])
             ]);
           }
           if (state is PaymentLoadedState) {
             List<Payment> paymentsList = state.payments;
-            return  _renderTable(context,paymentsList);
+            return _renderTable(context, paymentsList);
           }
           return Container();
         },
@@ -122,8 +121,18 @@ DataRow recentPaymentDataRow(Payment paymentInfo) {
     cells: [
       DataCell(Text(paymentidShort)),
       DataCell(Text(paymentInfo.accountid!)),
-      DataCell(Text(paymentInfo.amountrecieved!.toString())),
-      DataCell(Text("(${paymentInfo.amountpaid!.toString()})")),
+      DataCell(Container(
+          child: Text(
+              NumberFormat.compactCurrency(locale: 'EN-us', symbol: "\$")
+                  .format(paymentInfo.amountrecieved!)),
+          alignment: Alignment.centerRight,
+          width: 50)),
+      DataCell(Container(
+          child: Text(
+              NumberFormat.compactCurrency(locale: 'EN-us', symbol: "\$")
+                  .format(paymentInfo.amountpaid!)),
+          alignment: Alignment.centerRight,
+          width: 50)),
       DataCell(Text(paymentInfo.dateofpayment!)),
       DataCell(Text(paymentInfo.purpose!)),
     ],

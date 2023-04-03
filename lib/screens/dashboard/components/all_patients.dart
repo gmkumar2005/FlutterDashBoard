@@ -22,20 +22,19 @@ class Patients extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PatientBloc>(
-          create: (BuildContext context) =>
-              PatientBloc(PatientRepository()),
+          create: (BuildContext context) => PatientBloc(PatientRepository()),
         ),
       ],
       child: _renderPassengerBlock(),
     );
-      }
+  }
 }
 
 Widget _renderPassengerBlock() {
   return BlocProvider(
       create: (context) => PatientBloc(
-        PatientRepository(),
-      )..add(LoadPatientEvent()),
+            PatientRepository(),
+          )..add(LoadPatientEvent()),
       child: BlocBuilder<PatientBloc, PatientState>(
         builder: (context, state) {
           if (state is PatientLoadingState) {
@@ -45,21 +44,24 @@ Widget _renderPassengerBlock() {
           }
           if (state is PatientErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoPatients),)])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(
+                  child: _renderTable(context, demoPatients),
+                )
+              ])
             ]);
           }
           if (state is PatientLoadedState) {
             List<Patient> patientList = state.patients;
-            return  _renderTable(context,patientList);
+            return _renderTable(context, patientList);
           }
           return Container();
         },
@@ -116,9 +118,16 @@ Widget _renderTable(BuildContext context, List<Patient> patientList) {
 DataRow patientsDataRow(Patient patientInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(patientInfo.patientid!)),
+      DataCell(Container(
+        child: Text(patientInfo.patientid!),
+        width: 50,
+      )),
       DataCell(Text(patientInfo.name!)),
-      DataCell(Text(patientInfo.age!.toString())),
+      DataCell(Container(
+        child: Text(patientInfo.age!.toString()),
+        alignment: Alignment.centerRight,
+        width: 50,
+      )),
       DataCell(Text(patientInfo.gender!)),
       DataCell(Text(patientInfo.dateofadmission!)),
     ],

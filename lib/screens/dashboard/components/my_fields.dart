@@ -14,7 +14,6 @@ class MyPortfolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -44,7 +43,6 @@ class MyPortfolio extends StatelessWidget {
 
 _showTitle(){
   return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
-    final Size _size = MediaQuery.of(context).size;
     switch (state) {
       case NavbarItem.dashboard:
       //do some thing

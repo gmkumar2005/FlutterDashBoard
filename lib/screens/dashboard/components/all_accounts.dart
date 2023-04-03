@@ -2,6 +2,7 @@ import 'package:admin/models/Account.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../blocs/app_blocs.dart';
 import '../../../blocs/app_events.dart';
@@ -41,16 +42,19 @@ Widget _renderAccountBlock() {
           }
           if (state is AccountErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoAccounts),)])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(
+                  child: _renderTable(context, demoAccounts),
+                )
+              ])
             ]);
           }
           if (state is AccountLoadedState) {
@@ -118,9 +122,18 @@ DataRow accountsDataRow(Account accountInfo) {
       DataCell(Text(accountInfo.accountid!)),
       DataCell(Text(accountInfo.name!)),
       DataCell(Text(accountInfo.gender!)),
-      DataCell(Text(accountInfo.age!.toString())),
+      DataCell(Container(
+        child: Text(accountInfo.age!.toString()),
+        alignment: Alignment.centerRight,
+        width: 50,
+      )),
       DataCell(Text(accountInfo.dateofjoining!.toString())),
-      DataCell(Text(accountInfo.openiningbalance!.toString())),
+      DataCell(Container(
+          child: Text(
+              NumberFormat.compactCurrency(locale: 'EN-us', symbol: "\$")
+                  .format(accountInfo.openiningbalance!)),
+          alignment: Alignment.centerRight,
+          width: 50)),
     ],
   );
 }

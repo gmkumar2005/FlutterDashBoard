@@ -11,12 +11,12 @@ import '../models/Payment.dart';
 import '../models/Purchase.dart';
 import '../models/Treatment.dart';
 
+String baseUrl = 'http://127.0.0.1:3001';
+
 class PassengerRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/passengers';
 
   Future<List<Passenger>> getPassengers() async {
-
     try {
       Response response = await get(Uri.parse(baseUrl + resourcePath));
 
@@ -27,8 +27,7 @@ class PassengerRepository {
         print(response.reasonPhrase);
         throw Exception(response.reasonPhrase);
       }
-    }
-    catch(e){
+    } catch (e) {
       print("Error inside Inside catch $e");
       throw e;
     }
@@ -36,7 +35,6 @@ class PassengerRepository {
 }
 
 class BookingsRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/bookings';
 
   Future<List<Booking>> getBookings() async {
@@ -53,7 +51,6 @@ class BookingsRepository {
 }
 
 class PatientRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/patients';
 
   Future<List<Patient>> getPatients() async {
@@ -70,7 +67,6 @@ class PatientRepository {
 }
 
 class TreatmentRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/treatments';
 
   Future<List<Treatment>> getTreatments() async {
@@ -87,7 +83,6 @@ class TreatmentRepository {
 }
 
 class AccountRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/accounts';
 
   Future<List<Account>> getAccounts() async {
@@ -104,7 +99,6 @@ class AccountRepository {
 }
 
 class PaymentsRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/payments';
 
   Future<List<Payment>> getPayments() async {
@@ -120,9 +114,7 @@ class PaymentsRepository {
   }
 }
 
-
 class CustomerRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/customers';
 
   Future<List<Customer>> getCustomers() async {
@@ -139,7 +131,6 @@ class CustomerRepository {
 }
 
 class PurchaseRepository {
-  String baseUrl = 'http://127.0.0.1:3001/';
   String resourcePath = '/purchases';
 
   Future<List<Purchase>> getPurchases() async {

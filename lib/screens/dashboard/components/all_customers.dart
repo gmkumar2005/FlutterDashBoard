@@ -16,25 +16,22 @@ class Customers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<CustomerBloc>(
-          create: (BuildContext context) =>
-              CustomerBloc(CustomerRepository()),
+          create: (BuildContext context) => CustomerBloc(CustomerRepository()),
         ),
       ],
       child: _renderCustomerBlock(),
     );
-
   }
 }
 
 Widget _renderCustomerBlock() {
   return BlocProvider(
       create: (context) => CustomerBloc(
-        CustomerRepository(),
-      )..add(LoadCustomerEvent()),
+            CustomerRepository(),
+          )..add(LoadCustomerEvent()),
       child: BlocBuilder<CustomerBloc, CustomerState>(
         builder: (context, state) {
           if (state is CustomerLoadingState) {
@@ -44,28 +41,31 @@ Widget _renderCustomerBlock() {
           }
           if (state is CustomerErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoCustomers),)])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(
+                  child: _renderTable(context, demoCustomers),
+                )
+              ])
             ]);
           }
           if (state is CustomerLoadedState) {
             List<Customer> customerList = state.customers;
-            return  _renderTable(context,customerList);
+            return _renderTable(context, customerList);
           }
           return Container();
         },
       ));
 }
 
-Widget _renderTable(BuildContext context,List<Customer> customerList) {
+Widget _renderTable(BuildContext context, List<Customer> customerList) {
   return Container(
     padding: EdgeInsets.all(defaultPadding),
     decoration: BoxDecoration(
@@ -106,7 +106,7 @@ Widget _renderTable(BuildContext context,List<Customer> customerList) {
             ],
             rows: List.generate(
               customerList.length,
-                  (index) => customersDataRow(customerList[index]),
+              (index) => customersDataRow(customerList[index]),
             ),
           ),
         ),
@@ -120,7 +120,11 @@ DataRow customersDataRow(Customer customerInfo) {
     cells: [
       DataCell(Text(customerInfo.customerid!)),
       DataCell(Text(customerInfo.name!)),
-      DataCell(Text(customerInfo.age!.toString())),
+      DataCell(Container(
+        child: Text(customerInfo.age!.toString()),
+        alignment: Alignment.centerRight,
+        width: 50,
+      )),
       DataCell(Text(customerInfo.gender!)),
       DataCell(Text(customerInfo.dateofregistration!)),
     ],

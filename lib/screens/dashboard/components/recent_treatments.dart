@@ -1,6 +1,7 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../blocs/app_blocs.dart';
 import '../../../blocs/app_events.dart';
@@ -45,16 +46,17 @@ Widget _renderTreatmentBlock() {
           }
           if (state is TreatmentErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoTreatments))])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(child: _renderTable(context, demoTreatments))
+              ])
             ]);
           }
           if (state is TreatmentLoadedState) {
@@ -118,7 +120,8 @@ Widget _renderTable(BuildContext context, List<Treatment> treatmentsList) {
 }
 
 DataRow recentTreatmentDataRow(Treatment treatmentInfo) {
-  var treatmentidShort = treatmentInfo.treatmentid!.characters.takeLast(8).toString();
+  var treatmentidShort =
+      treatmentInfo.treatmentid!.characters.takeLast(8).toString();
   return DataRow(
     cells: [
       DataCell(Text(treatmentidShort)),
@@ -126,7 +129,12 @@ DataRow recentTreatmentDataRow(Treatment treatmentInfo) {
       DataCell(Text(treatmentInfo.diagnosis!)),
       DataCell(Text(treatmentInfo.treatment!)),
       DataCell(Text(treatmentInfo.dateoftreatment!)),
-      DataCell(Text(treatmentInfo.price.toString())),
+      DataCell(Container(
+        child: Text(NumberFormat.compactCurrency(locale: 'EN-us', symbol: "\$")
+            .format(treatmentInfo.price!)),
+        alignment: Alignment.centerRight,
+        width: 50,
+      ))
     ],
   );
 }

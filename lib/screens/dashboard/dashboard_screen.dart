@@ -62,23 +62,6 @@ class _DashboardWidgetState extends State<DashboardScreen> {
     );
   }
 
-  _showSnapShotDetails() {
-    return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {
-      log("Received Navbar state $state ");
-      switch (state) {
-        case NavbarItem.dashboard:
-          if (!Responsive.isMobile(context))
-            return Expanded(
-              flex: 2,
-              child: SnapshotDetails(),
-            );
-          else
-            return Container();
-        default:
-          return Container();
-      }
-    });
-  }
 
   _showSnapShot() {
     return BlocBuilder<NavigationCubit, NavbarItem>(builder: (context, state) {

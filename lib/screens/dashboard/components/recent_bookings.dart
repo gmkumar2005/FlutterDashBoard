@@ -4,6 +4,7 @@ import 'package:admin/blocs/app_states.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../constants.dart';
 import '../../../models/Booking.dart';
@@ -19,8 +20,7 @@ class RecentBookings extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<BookingBloc>(
-          create: (BuildContext context) =>
-              BookingBloc(BookingsRepository()),
+          create: (BuildContext context) => BookingBloc(BookingsRepository()),
         ),
       ],
       child: _renderBookingsBlock(),
@@ -30,12 +30,11 @@ class RecentBookings extends StatelessWidget {
 
 //   final String? bookingid, passengerid, origincity, destinationcity, distance, price, dateofjourney;
 
-
 Widget _renderBookingsBlock() {
   return BlocProvider(
       create: (context) => BookingBloc(
-        BookingsRepository(),
-      )..add(LoadBookingEvent()),
+            BookingsRepository(),
+          )..add(LoadBookingEvent()),
       child: BlocBuilder<BookingBloc, BookingState>(
         builder: (context, state) {
           if (state is BookingLoadingState) {
@@ -45,28 +44,29 @@ Widget _renderBookingsBlock() {
           }
           if (state is BookingErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoBookings))])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(child: _renderTable(context, demoBookings))
+              ])
             ]);
           }
           if (state is BookingLoadedState) {
             List<Booking> bookingsList = state.bookings;
-            return  _renderTable(context,bookingsList);
+            return _renderTable(context, bookingsList);
           }
           return Container();
         },
       ));
 }
 
-Widget _renderTable(BuildContext context,List<Booking> bookingsList) {
+Widget _renderTable(BuildContext context, List<Booking> bookingsList) {
   return Container(
     padding: EdgeInsets.all(defaultPadding),
     decoration: BoxDecoration(
@@ -113,15 +113,15 @@ Widget _renderTable(BuildContext context,List<Booking> bookingsList) {
             ],
             rows: List.generate(
               bookingsList.length,
-                  (index) => recentBookingDataRow(bookingsList[index]),
+              (index) => recentBookingDataRow(bookingsList[index]),
             ),
           ),
         ),
       ],
     ),
   );
-
 }
+
 DataRow recentBookingDataRow(Booking bookingInfo) {
   var bookingidShort = bookingInfo.bookingid!.characters.takeLast(8).toString();
   return DataRow(
@@ -130,8 +130,17 @@ DataRow recentBookingDataRow(Booking bookingInfo) {
       DataCell(Text(bookingInfo.passengerid!)),
       DataCell(Text(bookingInfo.origincity!)),
       DataCell(Text(bookingInfo.destinationcity!)),
-      DataCell(Text(bookingInfo.distance!.toString())),
-      DataCell(Text(bookingInfo.price!.toString())),
+      DataCell(Container(
+          child: Text(NumberFormat.compact(locale: 'EN-us')
+              .format(bookingInfo.distance!)),
+          alignment: Alignment.centerRight,
+          width: 50)),
+      DataCell(Container(
+          child: Text(
+              NumberFormat.compactCurrency(locale: 'EN-us', symbol: "\$")
+                  .format(bookingInfo.price!)),
+          alignment: Alignment.centerRight,
+          width: 50)),
       DataCell(Text(bookingInfo.dateofjourney!)),
     ],
   );

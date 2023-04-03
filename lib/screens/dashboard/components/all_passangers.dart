@@ -45,16 +45,19 @@ Widget _renderPassengerBlock() {
           }
           if (state is PassengerErrorState) {
             return Column(children: [
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Center(child: Text("Error occurred while fetching data from the server ${state.error}"))]),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Center(
+                    child: Text(
+                        "Error occurred while fetching data from the server ${state.error}"))
+              ]),
               Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Center(child: Text("Showing demo data"))]),
-              Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Expanded(child: _renderTable(context, demoPassengers),)])
-
+              Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Expanded(
+                  child: _renderTable(context, demoPassengers),
+                )
+              ])
             ]);
           }
           if (state is PassengerLoadedState) {
@@ -116,9 +119,12 @@ Widget _renderTable(BuildContext context, List<Passenger> passengerList) {
 DataRow passengersDataRow(Passenger passengerInfo) {
   return DataRow(
     cells: [
-      DataCell(Text(passengerInfo.passengerid!)),
-      DataCell(Text(passengerInfo.name!)),
-      DataCell(Text(passengerInfo.age!.toString())),
+      DataCell(Container(width: 50, child: Text(passengerInfo.passengerid!))),
+      DataCell(Container(child: Text(passengerInfo.name!), width: 200)),
+      DataCell(Container(
+          child: Text(passengerInfo.age!.toString()),
+          width: 50,
+          alignment: Alignment.centerRight)),
       DataCell(Text(passengerInfo.gender!)),
       DataCell(Text(passengerInfo.dateofbirth!))
     ],

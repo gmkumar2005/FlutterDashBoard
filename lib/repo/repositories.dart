@@ -16,14 +16,21 @@ class PassengerRepository {
   String resourcePath = '/passengers';
 
   Future<List<Passenger>> getPassengers() async {
-    Response response = await get(Uri.parse(baseUrl + resourcePath));
 
-    if (response.statusCode == 200) {
-      final List result = jsonDecode(response.body);
-      return result.map((e) => Passenger.fromJson(e)).toList();
-    } else {
-      print(response.reasonPhrase);
-      throw Exception(response.reasonPhrase);
+    try {
+      Response response = await get(Uri.parse(baseUrl + resourcePath));
+
+      if (response.statusCode == 200) {
+        final List result = jsonDecode(response.body);
+        return result.map((e) => Passenger.fromJson(e)).toList();
+      } else {
+        print(response.reasonPhrase);
+        throw Exception(response.reasonPhrase);
+      }
+    }
+    catch(e){
+      print("Error inside Inside catch $e");
+      throw e;
     }
   }
 }

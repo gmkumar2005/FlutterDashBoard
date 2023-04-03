@@ -7,7 +7,11 @@ flutter clean build web
 ```shell
 flutter run -d chrome
 ```
-
+### gh-pages integration
+```shell
+flutter clean build web --base-href FlutterDashboard
+cp -r ../../FlutterDashBoard/build/web/* .
+```
 ### Features 
 - Dashboard
   - Dashboard displays the global portfolio along with snap shot of all businesses

@@ -560,7 +560,7 @@
         {
           "uuid": "e107e82b-7c22-4e98-a8db-605058486250",
           "body": "{}",
-          "latency": 0,
+          "latency": 1000,
           "statusCode": 200,
           "label": "",
           "headers": [],

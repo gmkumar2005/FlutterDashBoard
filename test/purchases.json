@@ -1,0 +1,322 @@
+[
+  {
+    "purchaseid": "9211653f-292f-47b2-9544-a4706510d7e8",
+    "customerid": "5",
+    "itempurchased": "Awesome Bronze Mouse",
+    "price": 261,
+    "quantity": 6,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "29acc9af-b3b4-4435-aa84-38710f137708",
+    "customerid": "5",
+    "itempurchased": "Licensed Cotton Ball",
+    "price": 251,
+    "quantity": 33,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "8c99f6a8-7f5c-40cf-9957-4230d73bd9e0",
+    "customerid": "3",
+    "itempurchased": "Sleek Rubber Shirt",
+    "price": 347,
+    "quantity": 30,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "fc11635d-ce7d-4924-8f8e-a24a99d0449c",
+    "customerid": "3",
+    "itempurchased": "Practical Soft Ball",
+    "price": 220,
+    "quantity": 14,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "9c1ccb3d-c262-482a-912f-30991cc2c8cb",
+    "customerid": "5",
+    "itempurchased": "Rustic Steel Salad",
+    "price": 359,
+    "quantity": 48,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "c035f593-cd43-4947-9580-5c4c0d125788",
+    "customerid": "1",
+    "itempurchased": "Unbranded Frozen Pizza",
+    "price": 354,
+    "quantity": 34,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "63fc3791-78c0-47f1-bbe8-976c3eb7b987",
+    "customerid": "3",
+    "itempurchased": "Elegant Frozen Mouse",
+    "price": 437,
+    "quantity": 11,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "a89a1979-12c7-4377-a212-c0bab82c6595",
+    "customerid": "4",
+    "itempurchased": "Generic Metal Car",
+    "price": 427,
+    "quantity": 31,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "4fe58f91-6726-49ec-aed8-6fa3bc5d530b",
+    "customerid": "3",
+    "itempurchased": "Bespoke Frozen Chair",
+    "price": 234,
+    "quantity": 29,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "d516d5eb-1447-4764-8c4c-af26e842eec0",
+    "customerid": "4",
+    "itempurchased": "Fantastic Rubber Mouse",
+    "price": 473,
+    "quantity": 34,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "bb4f3663-a1c7-419f-838c-02804f8e9ef6",
+    "customerid": "1",
+    "itempurchased": "Practical Rubber Pizza",
+    "price": 241,
+    "quantity": 4,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "cfecd9ee-fc20-48f8-8be3-2dff543da56c",
+    "customerid": "1",
+    "itempurchased": "Luxurious Fresh Chicken",
+    "price": 449,
+    "quantity": 9,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "22dac12f-6baf-4799-b1d4-5424e75a97ae",
+    "customerid": "2",
+    "itempurchased": "Rustic Steel Hat",
+    "price": 336,
+    "quantity": 40,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "7314cb77-ef04-41aa-b150-59d4e6f49dcf",
+    "customerid": "5",
+    "itempurchased": "Oriental Bronze Sausages",
+    "price": 304,
+    "quantity": 21,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "3209c76d-6640-49e7-bdaf-a0f3057b8d06",
+    "customerid": "1",
+    "itempurchased": "Bespoke Metal Chips",
+    "price": 362,
+    "quantity": 18,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "deeb6a35-bf60-48c5-ae17-7f742183b3ed",
+    "customerid": "4",
+    "itempurchased": "Gorgeous Plastic Pizza",
+    "price": 451,
+    "quantity": 22,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "740b1b82-413f-4d31-b7b6-cb840f34e578",
+    "customerid": "1",
+    "itempurchased": "Recycled Cotton Tuna",
+    "price": 226,
+    "quantity": 39,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "2ea48e80-b1a4-42b7-97ff-228f6d06fc05",
+    "customerid": "5",
+    "itempurchased": "Ergonomic Metal Hat",
+    "price": 397,
+    "quantity": 46,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "a307e8a2-2386-4d65-b982-1a76f6a6f058",
+    "customerid": "2",
+    "itempurchased": "Practical Steel Tuna",
+    "price": 446,
+    "quantity": 19,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "c7e388a4-3ed2-40af-80cd-26cb5a70c310",
+    "customerid": "5",
+    "itempurchased": "Small Concrete Computer",
+    "price": 423,
+    "quantity": 41,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "7d16fe28-c83e-4fd1-bdd0-73946c7ac1dd",
+    "customerid": "2",
+    "itempurchased": "Small Plastic Tuna",
+    "price": 425,
+    "quantity": 41,
+    "dateofpurchase": "20-03-2023"
+  },
+  {
+    "purchaseid": "ff376c48-6221-42db-b0d7-f48fd70eda01",
+    "customerid": "1",
+    "itempurchased": "Tasty Granite Chair",
+    "price": 303,
+    "quantity": 47,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "40c603d7-b331-443e-b7a0-f07a06450f2d",
+    "customerid": "4",
+    "itempurchased": "Recycled Fresh Pizza",
+    "price": 362,
+    "quantity": 21,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "9169e85a-180f-4461-826f-6e61f886939e",
+    "customerid": "3",
+    "itempurchased": "Modern Rubber Hat",
+    "price": 226,
+    "quantity": 39,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "323c887c-2d1d-4b9e-81e5-6c83c03780c5",
+    "customerid": "1",
+    "itempurchased": "Licensed Fresh Cheese",
+    "price": 265,
+    "quantity": 12,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "a4ea4e44-f0a6-4355-a31f-daf2f2655eba",
+    "customerid": "2",
+    "itempurchased": "Recycled Fresh Shoes",
+    "price": 435,
+    "quantity": 2,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "a2344592-e67f-4dc9-81f4-ef07bb4d18fd",
+    "customerid": "4",
+    "itempurchased": "Handmade Concrete Soap",
+    "price": 289,
+    "quantity": 14,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "598457ec-9dc6-40df-ae2d-d518a70bb6cb",
+    "customerid": "3",
+    "itempurchased": "Luxurious Bronze Shoes",
+    "price": 334,
+    "quantity": 35,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "a61e0c45-105f-426f-9ecb-82177224dab3",
+    "customerid": "3",
+    "itempurchased": "Recycled Metal Car",
+    "price": 480,
+    "quantity": 10,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "650b25a5-eb3b-4f8a-8d90-8ac370dc53ea",
+    "customerid": "2",
+    "itempurchased": "Elegant Steel Soap",
+    "price": 280,
+    "quantity": 30,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "9322e3e0-4642-4450-92fc-b4c6813aae43",
+    "customerid": "3",
+    "itempurchased": "Fantastic Bronze Towels",
+    "price": 239,
+    "quantity": 10,
+    "dateofpurchase": "24-03-2023"
+  },
+  {
+    "purchaseid": "e6b57fee-6e46-42f4-a91b-9595b6f33bba",
+    "customerid": "3",
+    "itempurchased": "Gorgeous Granite Keyboard",
+    "price": 222,
+    "quantity": 11,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "b2396eed-d2e5-4ef2-b0b4-ed23e62db319",
+    "customerid": "2",
+    "itempurchased": "Practical Soft Sausages",
+    "price": 393,
+    "quantity": 31,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "d6b88a55-1a95-4500-b1ed-eec9b5a2e5ab",
+    "customerid": "4",
+    "itempurchased": "Small Frozen Soap",
+    "price": 498,
+    "quantity": 42,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "93ffbffe-0c7f-413d-b992-84254366d982",
+    "customerid": "5",
+    "itempurchased": "Electronic Plastic Table",
+    "price": 435,
+    "quantity": 34,
+    "dateofpurchase": "20-03-2023"
+  },
+  {
+    "purchaseid": "04cd0f90-5e93-4b7f-a226-e2713b6e3057",
+    "customerid": "3",
+    "itempurchased": "Bespoke Wooden Computer",
+    "price": 335,
+    "quantity": 48,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "10dad697-7ffd-43cd-b90f-6fa3a19d802b",
+    "customerid": "2",
+    "itempurchased": "Licensed Bronze Towels",
+    "price": 302,
+    "quantity": 36,
+    "dateofpurchase": "22-03-2023"
+  },
+  {
+    "purchaseid": "89a049f8-f92e-4b88-b0f9-af6b819b708e",
+    "customerid": "4",
+    "itempurchased": "Incredible Wooden Gloves",
+    "price": 351,
+    "quantity": 19,
+    "dateofpurchase": "23-03-2023"
+  },
+  {
+    "purchaseid": "1fd6a583-626a-484f-9762-4598ea47a585",
+    "customerid": "1",
+    "itempurchased": "Small Steel Fish",
+    "price": 397,
+    "quantity": 6,
+    "dateofpurchase": "21-03-2023"
+  },
+  {
+    "purchaseid": "1ae4944f-246a-4420-bec9-87c5b310dc5b",
+    "customerid": "5",
+    "itempurchased": "Luxurious Concrete Tuna",
+    "price": 263,
+    "quantity": 42,
+    "dateofpurchase": "21-03-2023"
+  }
+]

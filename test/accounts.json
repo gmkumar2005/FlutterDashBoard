@@ -1,0 +1,82 @@
+[
+  {
+    "accountid": "0",
+    "name": "Floyd_Witting",
+    "age": 55,
+    "gender": "male",
+    "dateofjoining": "01-12-1975",
+    "openiningbalance": 719
+  },
+  {
+    "accountid": "1",
+    "name": "Shea37",
+    "age": 28,
+    "gender": "female",
+    "dateofjoining": "03-06-1993",
+    "openiningbalance": 322
+  },
+  {
+    "accountid": "2",
+    "name": "Reanna.Bosco63",
+    "age": 4,
+    "gender": "male",
+    "dateofjoining": "06-02-1984",
+    "openiningbalance": 455
+  },
+  {
+    "accountid": "3",
+    "name": "Brando.Aufderhar",
+    "age": 30,
+    "gender": "male",
+    "dateofjoining": "09-10-1983",
+    "openiningbalance": 692
+  },
+  {
+    "accountid": "4",
+    "name": "Rashad_Wyman84",
+    "age": 65,
+    "gender": "female",
+    "dateofjoining": "17-04-1984",
+    "openiningbalance": 561
+  },
+  {
+    "accountid": "5",
+    "name": "Foster38",
+    "age": 67,
+    "gender": "male",
+    "dateofjoining": "25-10-1980",
+    "openiningbalance": 420
+  },
+  {
+    "accountid": "6",
+    "name": "Zella.Jones",
+    "age": 52,
+    "gender": "female",
+    "dateofjoining": "05-05-1994",
+    "openiningbalance": 697
+  },
+  {
+    "accountid": "7",
+    "name": "Kacie56",
+    "age": 18,
+    "gender": "male",
+    "dateofjoining": "06-07-1980",
+    "openiningbalance": 336
+  },
+  {
+    "accountid": "8",
+    "name": "Zoe21",
+    "age": 50,
+    "gender": "male",
+    "dateofjoining": "11-04-1978",
+    "openiningbalance": 425
+  },
+  {
+    "accountid": "9",
+    "name": "Braxton97",
+    "age": 4,
+    "gender": "female",
+    "dateofjoining": "29-04-1982",
+    "openiningbalance": 581
+  }
+]

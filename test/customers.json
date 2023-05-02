@@ -1,0 +1,72 @@
+[
+  {
+    "customerid": "0",
+    "name": "Elmore31",
+    "age": 70,
+    "gender": "female",
+    "dateofregistration": "17-03-2023"
+  },
+  {
+    "customerid": "1",
+    "name": "Berta_Witting13",
+    "age": 19,
+    "gender": "female",
+    "dateofregistration": "10-04-2023"
+  },
+  {
+    "customerid": "2",
+    "name": "Yesenia_Moen15",
+    "age": 55,
+    "gender": "male",
+    "dateofregistration": "24-03-2023"
+  },
+  {
+    "customerid": "3",
+    "name": "Idella.Botsford66",
+    "age": 65,
+    "gender": "female",
+    "dateofregistration": "11-04-2023"
+  },
+  {
+    "customerid": "4",
+    "name": "Aiyana.Hayes",
+    "age": 30,
+    "gender": "female",
+    "dateofregistration": "14-04-2023"
+  },
+  {
+    "customerid": "5",
+    "name": "Flossie_Langosh",
+    "age": 2,
+    "gender": "female",
+    "dateofregistration": "04-04-2023"
+  },
+  {
+    "customerid": "6",
+    "name": "Jettie.Altenwerth",
+    "age": 3,
+    "gender": "male",
+    "dateofregistration": "21-03-2023"
+  },
+  {
+    "customerid": "7",
+    "name": "Neha94",
+    "age": 19,
+    "gender": "female",
+    "dateofregistration": "12-04-2023"
+  },
+  {
+    "customerid": "8",
+    "name": "Maxie.Osinski",
+    "age": 26,
+    "gender": "male",
+    "dateofregistration": "14-04-2023"
+  },
+  {
+    "customerid": "9",
+    "name": "Ted_Wyman",
+    "age": 44,
+    "gender": "male",
+    "dateofregistration": "16-03-2023"
+  }
+]

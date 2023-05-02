@@ -1,0 +1,72 @@
+[
+  {
+    "patientid": "0",
+    "name": "Gwen_Emard",
+    "age": 41,
+    "gender": "male",
+    "dateofadmission": "12-09-1997"
+  },
+  {
+    "patientid": "1",
+    "name": "Kristoffer_Kiehn91",
+    "age": 11,
+    "gender": "male",
+    "dateofadmission": "18-01-1977"
+  },
+  {
+    "patientid": "2",
+    "name": "Justina14",
+    "age": 30,
+    "gender": "male",
+    "dateofadmission": "30-12-1989"
+  },
+  {
+    "patientid": "3",
+    "name": "Xavier66",
+    "age": 52,
+    "gender": "female",
+    "dateofadmission": "09-04-1990"
+  },
+  {
+    "patientid": "4",
+    "name": "Cathryn35",
+    "age": 34,
+    "gender": "female",
+    "dateofadmission": "16-07-1988"
+  },
+  {
+    "patientid": "5",
+    "name": "Gina_Harris78",
+    "age": 3,
+    "gender": "female",
+    "dateofadmission": "06-11-1985"
+  },
+  {
+    "patientid": "6",
+    "name": "Andy15",
+    "age": 59,
+    "gender": "male",
+    "dateofadmission": "17-10-1987"
+  },
+  {
+    "patientid": "7",
+    "name": "Maximilian16",
+    "age": 29,
+    "gender": "female",
+    "dateofadmission": "06-09-1976"
+  },
+  {
+    "patientid": "8",
+    "name": "Arch.Grady88",
+    "age": 64,
+    "gender": "female",
+    "dateofadmission": "18-02-1980"
+  },
+  {
+    "patientid": "9",
+    "name": "Zakary.Heidenreich44",
+    "age": 63,
+    "gender": "female",
+    "dateofadmission": "23-11-1982"
+  }
+]
